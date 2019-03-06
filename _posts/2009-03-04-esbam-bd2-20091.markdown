@@ -1,0 +1,15 @@
+---
+layout: post
+title:  Banco de Dados 2
+date:   2009-03-04
+img: img/portfolio/2009/esbam-bd2-20091.png
+modalID: modalBd220091
+category: Aula
+---
+
+Disciplina Banco de Dados 2 ministrada no sétimo período do curso de Sistema de Informação da [Escola Superior Batista do Amazonas (Esbam)][esbam]{:target="_black"} em 2009/1.
+
+
+[esbam]: http://www.esbam.edu.br/
+
+
