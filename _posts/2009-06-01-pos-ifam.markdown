@@ -1,0 +1,12 @@
+---
+layout: post
+title:  XML para Desenvolvimento de Aplicações WEB
+date:   2009-06-01
+img: img/portfolio/2009/pos-ifam.png
+modalID: modalPosIfam2009
+category: Aula
+---
+
+Disciplina XML para Desenvolvimento de Aplicações WEB ministrada na Especialização em Desenvolvimento de Software para Web do [Instituto Federal do Amazonas (Ifam)][ifam]{:target="_black"}.
+
+[ifam]: http://www2.ifam.edu.br/
