@@ -1,0 +1,13 @@
+---
+layout: post
+title:  Algoritmos e Estruturas de Dados Básicas
+date:   2014-08-05
+img: img/portfolio/2014/uninorte-aed-20142.png
+modalID: modalAed20142
+category: Aula
+---
+
+Disciplina Algoritmos e Estruturas de Dados Básicas ministrada no segundo período do curso Ciência da Computação do [Centro Universitário do Norte (Uninorte)][uninorte]{:target="_black"} em 2014/2.
+
+
+[uninorte]: http://uninorte.com.br/
