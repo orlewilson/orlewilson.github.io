@@ -1,0 +1,12 @@
+---
+layout: post
+title:  Análise e Projeto de Sistemas
+date:   2009-03-05
+img: img/portfolio/2009/lasalle-aps-20091.png
+modalID: modalAps20091
+category: Aula
+---
+
+Disciplina Análise e Projeto de Sistemas ministrada no quinto período do curso de Sistema de Informação da [Faculdade La Salle Manaus][lasalle]{:target="_black"} em 2009/1.
+
+[lasalle]: http://lasalle.edu.br/faculdade/manaus/
