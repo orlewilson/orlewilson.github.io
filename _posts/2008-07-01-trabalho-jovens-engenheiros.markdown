@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Projeto Jovens Engenheiros 
-date:   2008-12-12
+date:   2008-07-01
 img: img/portfolio/2008/trabalho-jovens-engenheiros.png
 modalID: modalTrabalhoJovensEngenheiros
 category: Trabalho
