@@ -1,0 +1,12 @@
+---
+layout: post
+title:  Banco de Dados Orientados a Objetos
+date:   2009-08-04
+img: img/portfolio/2009/lasalle-bdoo-20092.png
+modalID: modalBdoo20092
+category: Aula
+---
+
+Disciplina Banco de Dados Orientados a Objetos ministrada no sétimo período do curso de Sistema de Informação da [Faculdade La Salle Manaus][lasalle]{:target="_black"} em 2009/2.
+
+[lasalle]: http://lasalle.edu.br/faculdade/manaus/
