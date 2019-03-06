@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  TPV Vision Innovator
+title:  TPV Technology
 date:   2018-10-15
 img: img/portfolio/2018/trabalho-tpv.png
 modalID: modalTrabalhoTPV
