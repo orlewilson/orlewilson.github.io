@@ -1,0 +1,12 @@
+---
+layout: post
+title:  Sistemas Distribuídos
+date:   2009-08-05
+img: img/portfolio/2009/lasalle-sd-20092.png
+modalID: modalSd20092
+category: Aula
+---
+
+Disciplina Sistemas Distribuídos ministrada no sexto período do curso de Sistema de Informação da [Faculdade La Salle Manaus][lasalle]{:target="_black"} em 2009/2.
+
+[lasalle]: http://lasalle.edu.br/faculdade/manaus/
