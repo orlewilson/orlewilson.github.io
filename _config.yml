@@ -1,0 +1,31 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: Orlewilson Bentes Maia
+email: orlewilson.maia@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Professor - Pesquisador - Consultor - Educação Presencial e a Distância - 
+  Programação Orientada a Objetos - Algoritmos - Programação Web - 
+  Desenvolvimento de Software - Java - C/C++ - Python - Android - 
+  Internet das Coisas (IoT) - Sistemas Embarcados (Arduino)
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://orlewilson.github.io/" # the base hostname & protocol for your site
+
+# Social media profiles - feel free to add more here
+github_username: orlewilson
+facebook_username: orlewilsonmaia
+slideshare_username: orlewilson
+lattes_username: 3338550004854341
+linkedin_username: orlewilson
+email_username: orlewilson.maia@gmail.com 
+
+# Build settings
+markdown: kramdown
+
+plugins:
+  - jekyll-seo-tag
