@@ -1,0 +1,12 @@
+---
+layout: post
+title:  Programação Orientada a Objetos
+date:   2015-08-06
+img: img/portfolio/2015/uninorte-poo-20152.png
+modalID: modalPOO20152
+category: Aula
+---
+
+Disciplina Programação Orientada a Objetos (matutino e noturno) ministrada no quarto período do curso Ciência da Computação do [Centro Universitário do Norte (Uninorte)][uninorte]{:target="_black"} em 2015/2.
+
+[uninorte]: http://uninorte.com.br/
