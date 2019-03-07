@@ -1,0 +1,13 @@
+---
+layout: post
+title:  Algoritmos e Estrutura de Dados Avançada
+date:   2015-02-02
+img: img/portfolio/2015/uninorte-aeda-20151.png
+modalID: modalAEDA20151
+category: Aula
+---
+
+Disciplina Algoritmos e Estrutura de Dados Avançada (matutino e noturno) ministrada no terceiro período do curso Ciência da Computação do [Centro Universitário do Norte (Uninorte)][uninorte]{:target="_black"} em 2015/1.
+
+
+[uninorte]: http://uninorte.com.br/
