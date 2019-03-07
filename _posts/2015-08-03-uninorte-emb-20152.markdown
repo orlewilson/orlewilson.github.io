@@ -1,0 +1,13 @@
+---
+layout: post
+title:  Desenvolvimento de Sistemas Embarcados
+date:   2015-08-03
+img: img/portfolio/2015/uninorte-emb-20152.png
+modalID: modalSisEmb20152
+category: Aula
+---
+
+Disciplina Desenvolvimento de Sistemas Embarcados (noturno) ministrada no quinto período do curso de Análise e Desenvolvimento de Sistemas do [Centro Universitário do Norte (Uninorte)][uninorte]{:target="_black"} em 2015/2.
+
+
+[uninorte]: http://uninorte.com.br/
