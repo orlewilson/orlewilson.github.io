@@ -1,0 +1,13 @@
+---
+layout: post
+title:  Tecnologias na Formação Profissional
+date:   2016-08-04
+img: img/portfolio/2016/uninorte-tfp-20162.png
+modalID: modalTfp20162
+category: Aula
+---
+
+Disciplina a distância Tecnologias na Formação Profissional ministrada nos cursos de Engenharias, Humanas e Saúde do [Centro Universitário do Norte/Laureate][uninorte-laureate]{:target="_black"} em 2016/2.
+
+
+[uninorte-laureate]: https://www.uninorte.com.br/
