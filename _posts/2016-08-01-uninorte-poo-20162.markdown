@@ -7,7 +7,7 @@ modalID: modalPOO20162
 category: Aula
 ---
 
-Disciplina Programação Orientada a Objetos (noturno) ministrada no quarto período do curso de Rede de Computadores do [Centro Universitário do Norte (Uninorte)][uninorte]{:target="_black"} em 2016/1.
+Disciplina Programação Orientada a Objetos (noturno) ministrada no quarto período do curso de Rede de Computadores do [Centro Universitário do Norte (Uninorte)][uninorte]{:target="_black"} em 2016/2.
 
 
 [uninorte]: http://uninorte.com.br/
