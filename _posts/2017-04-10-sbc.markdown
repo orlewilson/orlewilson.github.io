@@ -1,0 +1,9 @@
+---
+layout: post
+title:  SBC
+date:   2017-04-10
+img: img/portfolio/2017/sbc.png
+modalID: modalSBC
+category: Sócio
+---
+Sócio efetivo da Sociedade Brasileira de Computação (SBC) desde outubro de 2017.
