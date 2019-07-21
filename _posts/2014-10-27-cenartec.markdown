@@ -1,0 +1,12 @@
+---
+layout: post
+title:  Cenartec
+date:   2014-10-27
+img: img/portfolio/2014/cenartec.png
+modalID: modalCenartec
+category: Organização de Eventos
+---
+
+Participante como um dos membros organizadores da 1° Congresso de Engenharia, Arquitetura e Tecnologia (CENARTEC) do [Centro Universitário do Norte/Laureate][uninorte-laureate]{:target="_black"}. 
+
+[uninorte-laureate]: https://www.uninorte.com.br/
