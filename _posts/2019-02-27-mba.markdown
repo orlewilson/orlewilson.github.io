@@ -1,0 +1,11 @@
+---
+layout: post
+title:  MBA - FGV
+date:   2019-02-27
+img: img/portfolio/2019/mba-fgv.png
+modalID: modalMBAFGV
+category: Formação Acadêmica
+---
+Cursando pós-graduação Lato Sensu/Especialização (MBA) pela [Fundação Getúlio Vargas (FGV)][fgv]{:target="_black"} em Gerenciamento de Projetos desde fevereiro de 2019.
+
+[fgv]: https://educacao-executiva.fgv.br/am/manaus
