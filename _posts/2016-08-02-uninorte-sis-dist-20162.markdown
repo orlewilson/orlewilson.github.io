@@ -7,7 +7,7 @@ modalID: modalPOO20162
 category: Aula
 ---
 
-Disciplina Sistemas Distribuídos (noturno) ministrada no quarto período do curso de Análise e Desenvolvimento de Sistemas do [Centro Universitário do Norte (Uninorte)][uninorte]{:target="_black"} em 2016/1.
+Disciplina Sistemas Distribuídos (noturno) ministrada no quarto período do curso de Análise e Desenvolvimento de Sistemas do [Centro Universitário do Norte (Uninorte)][uninorte]{:target="_black"} em 2016/2.
 
 
 [uninorte]: http://uninorte.com.br/
