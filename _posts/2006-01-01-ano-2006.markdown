@@ -1,0 +1,9 @@
+---
+layout: post
+title:  Ano 2006
+date:   2006-01-01
+img: img/portfolio/2006/2006.png
+modalID: 2006
+category: Atividades
+---
+Início das atividades de 2006.
