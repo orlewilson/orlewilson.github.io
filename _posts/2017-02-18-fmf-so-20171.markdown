@@ -1,0 +1,13 @@
+---
+layout: post
+title:  Sistemas Operacionais
+date:   2017-02-18
+img: img/portfolio/2017/fmf-so-20171.png
+modalID: modalSO20171
+category: Aula
+---
+
+Disciplina Sistemas Operacionais ministrada no curso de Análise e Desenvolvimento de Sistemas da [Faculdade Martha Falcão/Wyden][fmf-wyden]{:target="_black"} em 2017/1.
+
+
+[fmf-wyden]: https://www.wyden.com.br/fmf
