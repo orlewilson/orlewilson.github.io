@@ -1,0 +1,13 @@
+---
+layout: post
+title:  Fundamentos de Tecnologia da Informação
+date:   2017-08-11
+img: img/portfolio/2017/fmf-fund-ti-20172.png
+modalID: modalFundTI20172
+category: Aula
+---
+
+Disciplina Fundamentos de Tecnologia da Informação nos cursos de Administração e Ciências Contábeis da [Faculdade Martha Falcão/Wyden][fmf-wyden]{:target="_black"} em 2017/2.
+
+
+[fmf-wyden]: https://www.wyden.com.br/fmf
