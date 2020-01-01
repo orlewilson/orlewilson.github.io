@@ -1,0 +1,13 @@
+---
+layout: post
+title:  Programação Orientada a Objetos
+date:   2017-08-09
+img: img/portfolio/2017/uninorte-poo-20172.png
+modalID: modalPoo20172
+category: Aula
+---
+
+Disciplina Programação Orientada a Objetos ministrada nos cursos de Ciência da Computação e Engenharia da Computação do [Centro Universitário do Norte/Laureate][uninorte-laureate]{:target="_black"} em 2017/2.
+
+
+[uninorte-laureate]: https://www.uninorte.com.br/
