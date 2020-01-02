@@ -1,0 +1,13 @@
+---
+layout: post
+title:  Estudos de Caso em Computação Móvel
+date:   2019-08-09
+img: img/portfolio/2019/fmf-comp-movel-20192.png
+modalID: modalCompMovel20192
+category: Aula
+---
+
+Disciplina Estudos de Caso em Computação Móvel ministrada no curso de Análise e Desenvolvimento de Sistemas da [Faculdade Martha Falcão/Wyden][fmf-wyden]{:target="_black"} em 2019/2.
+
+
+[fmf-wyden]: https://www.wyden.com.br/fmf
