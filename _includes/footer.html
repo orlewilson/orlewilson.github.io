@@ -13,6 +13,11 @@
                             <a href="http://lattes.cnpq.br/{{ site.lattes_username }}" class="btn-social btn-outline" target="_blank"><i class="fa fa-file-text-o"></i></a>
                         </li>
                         {% endif %}
+                        {% if site.medium_username %}
+                        <li>
+                            <a href="https://medium.com/@{{ site.medium_username }}" class="btn-social btn-outline" target="_blank"><i class="fa fa-fw fa-medium"></i></a>
+                        </li>
+                        {% endif %}
                         {% if site.linkedin_username %}
                         <li>
                             <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}" class="btn-social btn-outline" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a>
