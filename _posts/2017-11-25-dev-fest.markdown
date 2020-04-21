@@ -1,0 +1,16 @@
+---
+layout: post
+title:  Criando Coisas Conectadas com Android Things
+date:   2017-11-25
+img: img/portfolio/2017/devfest-2017.png
+modalID: modalDevFest2017
+category: Palestra
+---
+Paletra ministrada no DevFest´17 em Manaus/AM organizado pelo [GDG Manaus][gdg-manaus]{:target="_black"}.
+
+Os slides estão disponíveis no [SlideShare][slideshare-devfest]{:target="_black"}.
+
+
+[gdg-manaus]: https://www.facebook.com/gdgmanaus/
+
+[slideshare-devfest]: https://www.slideshare.net/orlewilson/como-criar-coisas-conectadas-com-android-things
