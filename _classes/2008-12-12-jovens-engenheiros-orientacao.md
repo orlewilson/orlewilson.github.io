@@ -7,7 +7,7 @@ date: 	2008-12-12
 
 ![](../img/classes/2008/jovens-engenheiros-orientacao.png)
 
-Orientador do trabalho Desenvolvimento de um Aplicativo de TV Digital (Quiz) Integrando Tecnologia Móvel e Internet como Canal de Retorno no projeto Treinamento de Jovens Engenheiros para Desenvolvimento de Software para TV Digital durante o período de 07/01/2008 a 12/12/2008 no Centro de P&D em Tecnologia Eletrônica da Informação (Ceteli) da Universidade Federal do Amazonas (Ufam).
+Orientador do trabalho Desenvolvimento de um Aplicativo de TV Digital (Quiz) Integrando Tecnologia Móvel e Internet como Canal de Retorno desenvolvido no projeto Treinamento de Jovens Engenheiros para Desenvolvimento de Software para TV Digital durante o período de 07/01/2008 a 12/12/2008 no Centro de P&D em Tecnologia Eletrônica da Informação (Ceteli) da Universidade Federal do Amazonas (Ufam).
 
 <p class="text-center">
 	<a class="btn btn-outline-primary mt-1" href="{{ site.baseurl }}/classes/">Voltar</a>
