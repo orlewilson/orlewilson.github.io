@@ -5,9 +5,10 @@ layout: null
   {% for post in site.mentoring reversed %}
     {
       "title"    : "{{ post.name }}",
-      "category" : "{{ post.category }}",
+      "category" : "{{ post.tools | join: ', '}}",
       "url"      : "{{ post.external_url | default: post.url | relative_url }}",
-      "date"     : "{{ post.date }}"
+      "date"     : "{{ post.date }}",
+      "content"  : "{{ post.tools | join: ', '}}"
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]

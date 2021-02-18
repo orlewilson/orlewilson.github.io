@@ -11,7 +11,7 @@ Em 2019, recebi o prêmio de Mentor do Ano na 4° Cerimônia Anual do Prêmio Ja
 
 Atuo como professor, pesquisador, consultor, mentor e palestrante nos seguintes temas: Arduino, Internet das Coisas (IoT), Metodologias Ativas, Programação Orientada a Objetos, Python, Qualidade de Experiência (QoE).
 
-Meu currículum lattes é [http://lattes.cnpq.br/3338550004854341][lattes]{:target="_black"}.
+Meu currículum lattes: [http://lattes.cnpq.br/3338550004854341][lattes]{:target="_black"}.
 
 [lattes]: http://lattes.cnpq.br/3338550004854341
 
