@@ -1,6 +1,6 @@
 ---
 name:  	Middleware para TV Digital Interativa Baseado em Ginga e JAVATV
-tools: 	[graduação, ceteli, ufam, 2008]
+tools: 	[graduação, extensão, ceteli, ufam, 2008]
 image: 	../img/classes/2008/jovens-engenheiros-tvdigital.png
 date: 	2008-09-23
 ---

@@ -1,6 +1,6 @@
 ---
 name:  	XML Aplicado
-tools: 	[graduação, ceteli, ufam, 2008]
+tools: 	[graduação, extensão, ceteli, ufam, 2008]
 image: 	../img/classes/2008/jovens-engenheiros-xml.png
 date: 	2008-09-23
 ---
