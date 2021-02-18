@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html>
 
-  {% include head.html %}
-  {% seo %}
-    
-  <body id="page-top" class="index">
+<!--
+  portfolYOU Jekyll theme by Youssef Raafat
+  Free for personal and commercial use under the MIT license
+  https://github.com/YoussefRaafatNasry/portfolYOU
+-->
 
-    {% include navbar.html %}
+<html lang="en" class="h-100">
 
-    {% include header.html %}
+{% include head.html %}
 
-    {% include portfolio.html %}
+<body class="d-flex flex-column h-100">
 
-    {% include about.html %}
-    
-    {% include footer.html %}
+  <main class="flex-shrink-0 container mt-5">
+  {% include navbar.html %}
+  {{ content }}
+  </main>
 
-    {% include modals.html %}
+  {% include footer.html %}
+  {% include scripts.html %}
 
-    {% include javascript.html %}
-
-  </body>
+</body>
 
 </html>

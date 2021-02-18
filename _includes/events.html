@@ -1,0 +1,38 @@
+<!-- Simple-Jekyll-Search CDN -->
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<script>
+  var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title}</a>',
+        noResultsText: '<li class="list-group-item">Sem resultados</li>',
+        json: '{{ '/search-events.json' | relative_url }}'
+      })
+</script>
+
+<div class="card-group mt-3">
+
+  <!-- Local Projects -->
+  {% for project in site.events reversed%}
+
+    {% assign type = "local" %}
+    {% assign project_id =  project.name | slugify %}
+    {% assign project_img = project.image %}
+    {% assign project_name = project.name %}
+    {% assign project_desc = project.description %}
+    {% assign project_tools = project.tools %}
+
+    {% if project.external_url %}
+      {% assign project_url = project.external_url %}
+    {% else %}
+      {% assign project_url = project.url | relative_url %}
+    {% endif %}
+
+    <div class="col-lg-4 my-3 wow animated fadeIn" data-wow-delay=".15s">
+      {% include event-card.html %}
+    </div>
+  {% endfor %}
+
+</div>
+
+

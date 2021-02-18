@@ -1,9 +1,9 @@
-# Created by https://www.gitignore.io/api/jekyll
-
-### Jekyll ###
+# Local Site Directories
 _site/
 .sass-cache/
+.jekyll-cache/
 .jekyll-metadata
 
-
-# End of https://www.gitignore.io/api/jekyll
+# To generate Gemfile.lock -> use: $ bundle install
+# If unknown encoding name CP720 Error occured -> use: $ chcp.com 1252
+Gemfile.lock

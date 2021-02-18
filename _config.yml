@@ -1,31 +1,80 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-
 # Site settings
 title: Orlewilson Bentes Maia
-email: orlewilson.maia@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Professor - Pesquisador - Consultor - Educação Presencial e a Distância - 
-  Programação Orientada a Objetos - Algoritmos - Programação Web - 
-  Desenvolvimento de Software - Java - C/C++ - Python - Android - 
-  Internet das Coisas (IoT) - Sistemas Embarcados (Arduino)
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://orlewilson.github.io/" # the base hostname & protocol for your site
-
-# Social media profiles - feel free to add more here
-github_username: orlewilson
-facebook_username: orlewilsonmaia
-slideshare_username: orlewilson
-lattes_username: 3338550004854341
-linkedin_username: orlewilson
-email_username: orlewilson.maia@gmail.com 
+description: >- # this means to ignore newlines until "baseurl:"
+  Professor - Pesquisador - Mentor - Consultor - Palestrante - Arduino - Internet das Coisas (IoT) - Metodologias Ativas - Programação Orientada a Objetos - Python - Programação Web - Git - Qualidade de Experiência (QoE)
+baseurl: ""  # the subpath of your site, e.g. /blog
+url: "https://orlewilson.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+repository: YoussefRaafatNasry/portfolYOU
 
 # Build settings
 markdown: kramdown
+# plugins:
+# - jekyll-feed
 
-plugins:
-  - jekyll-seo-tag
+# Author Info
+author:
+  name          : Orlewilson Bentes Maia
+  image         : img/profile.png
+# behance       : your_username
+# dribbble      : your_username
+  email         : prof.orlewilson@gmail.com
+  facebook      : orlewilsonmaia
+  github        : orlewilson
+# gitlab        : your_username
+  instagram     : orlewilson
+  linkedin      : orlewilson
+# medium        : orlewilson
+# soundcloud    : your_username
+# spotify       : your_username
+# stackoverflow : your_user_id
+# tumblr        : your_username.tumblr.com
+# twitch        : your_username
+  twitter       : orlewilson
+# vimeo         : your_username
+  youtube       : channel/UCrmTzjmyiezVxQYpDFHD-9A
+
+# Collections
+collections:
+  experiences:
+    output: true
+    permalink: /experiences/:name
+  classes:
+    output: true
+    permalink: /classes/:name
+  mentoring:
+    output: true
+    permalink: /mentoring/:name
+  events:
+    output: true
+    permalink: /events/:name
+
+# Default values for collections
+defaults:
+  - scope:
+      path: ""
+      type: "classes"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "mentoring"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "events"
+    values:
+      layout: "page"
+
+
+# Posts default Permalink
+#permalink: articles/:title
+
+
+# Exclude from processing.
+exclude:
+- README.md
+- CONTRIBUTING.md
+- LICENSE
+- Gemfile
+- Gemfile.lock
