@@ -1,11 +1,11 @@
 ---
-name:  	XML para Desenvolvimento de Aplicações WEB
+name:  	Middleware para TV Digital Interativa Baseado em Ginga e JAVATV
 tools: 	[pós-graduação, ufam, 2009]
-image: 	../img/classes/2009/pos-ufam-tvd.png
+image: 	../img/classes/2009/ufam-pos-tvd.png
 date: 	2009-04-08
 ---
 
-![](../img/classes/2009/pos-ufam-tvd.png)
+![](../img/classes/2009/ufam-pos-tvd.png)
 
 Curso Middleware para TV Digital Interativa Baseado em Ginga e JAVATV ministrado em parceria com Nairon Viana na disciplina Engenharia de Software para TV Digital do Curso de Especialização em TV Digital na Universidade Federal do Amazonas (Ufam) em abril de 2009.
 

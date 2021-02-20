@@ -1,11 +1,11 @@
 ---
 name:  	XML para Desenvolvimento de Aplicações WEB
 tools: 	[pós-graduação, ifam, 2009]
-image: 	../img/classes/2009/pos-ifam.png
+image: 	../img/classes/2009/ifam-pos-xml.png
 date: 	2009-07-10
 ---
 
-![](../img/classes/2009/pos-ifam.png)
+![](../img/classes/2009/ifam-pos-xml.png)
 
 Disciplina XML para Desenvolvimento de Aplicações WEB ministrada na Especialização em Desenvolvimento de Software para Web do Instituto Federal do Amazonas (Ifam) em julho de 2009.
 
