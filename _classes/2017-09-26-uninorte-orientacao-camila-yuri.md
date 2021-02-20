@@ -1,6 +1,6 @@
 ---
 name:  	Proposta para agilização no processo de aquisição dos dados ao atendimento emergencial no contexto de cidades inteligentes
-tools: 	[graduação, uninorte, orientação, artigo, 2017]
+tools: 	[graduação, orientação, uninorte, artigo, erin, 2017]
 image: 	../img/classes/2017/uninorte-orientacao-camila-yuri.png
 date: 	2017-09-26
 ---

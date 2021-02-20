@@ -1,6 +1,6 @@
 ---
 name:  	Análise comparativa de qos em redes sdn wireless e redes wireless comuns
-tools: 	[graduação, uninorte, orientação, 2016]
+tools: 	[graduação, orientação, uninorte, 2016]
 image: 	../img/classes/2016/uninorte-orientacao-joao.png
 date: 	2016-12-13
 ---

@@ -1,6 +1,6 @@
 ---
 name:  	Um estudo de caso sobre a segurança das redes sem fio de alguns pontos comerciais e residenciais do centro de manaus
-tools: 	[graduação, uninorte, orientação, 2016]
+tools: 	[graduação, orientação, uninorte, 2016]
 image: 	../img/classes/2016/uninorte-orientacao-jose.png
 date: 	2016-12-13
 ---

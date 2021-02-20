@@ -1,6 +1,6 @@
 ---
 name:  	Aplicativo educacional para apoiar professores no ensino teórico e avaliativo em sala de aula
-tools: 	[graduação, uninorte, orientação, 2015]
+tools: 	[graduação, orientação, uninorte, 2015]
 image: 	../img/classes/2015/uninorte-orientacao-arcanjo-paulo.png
 date: 	2015-12-10
 ---

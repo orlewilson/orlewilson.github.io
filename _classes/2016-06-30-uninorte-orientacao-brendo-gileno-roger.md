@@ -1,6 +1,6 @@
 ---
 name:  	Um estudo das ferramentas app inventor, scratch e visualg para apoio no ensino da lógica de programação
-tools: 	[graduação, uninorte, orientação, 2016]
+tools: 	[graduação, orientação, uninorte, 2016]
 image: 	../img/classes/2016/uninorte-orientacao-brendo-gileno-roger.png
 date: 	2016-06-30
 ---

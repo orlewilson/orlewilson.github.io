@@ -7,7 +7,7 @@ date: 	2013-12-01
 
 ![](../img/classes/2013/pfc-so-mobile.png)
 
-Curso Sistemas Operacionais para Dispositivos Móveis ministrado em parceria com Ricardo Erikson no Programa de Formação Complementar no Centro de P&D em Tecnologia Eletrônica da Informação (Ceteli) da Universidade Federal do Amazonas (Ufam) em dezembro de 2013.
+Curso **Sistemas Operacionais para Dispositivos Móveis** ministrado em parceria com Ricardo Erikson no Programa de Formação Complementar no Centro de P&D em Tecnologia Eletrônica da Informação (Ceteli) da Universidade Federal do Amazonas (Ufam) em dezembro de 2013.
 
 
 <p class="text-center">
