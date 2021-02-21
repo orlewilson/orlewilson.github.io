@@ -1,6 +1,6 @@
 ---
 name:  	Arduino Day
-tools: 	[local, palestra, 2017]
+tools: 	[local, palestra, iot, 2017]
 image: 	../img/events/2017/arduino-day-2017.png
 date: 	2017-04-01
 ---
