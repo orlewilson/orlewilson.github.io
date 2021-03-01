@@ -1,7 +1,7 @@
 # Site settings
 title: Orlewilson Bentes Maia
 description: >- # this means to ignore newlines until "baseurl:"
-  Professor - Pesquisador - Mentor - Consultor - Palestrante - Arduino - Internet das Coisas (IoT) - Metodologias Ativas - Programação Orientada a Objetos - Python - Programação Web - Git - Qualidade de Experiência (Quality of Experience - QoE) - Qualidade (Quality Assurance - QA)
+  Professor - Pesquisador - Mentor - Consultor - Palestrante - Arduino - Internet das Coisas (IoT) - Metodologias Ativas - Programação Orientada a Objetos - Python - Programação Web - Git - Qualidade de Experiência (Quality of Experience - QoE) - Garantia de Qualidade (Quality Assurance - QA)
 baseurl: ""  # the subpath of your site, e.g. /blog
 url: "https://orlewilson.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 repository: YoussefRaafatNasry/portfolYOU
