@@ -9,7 +9,7 @@ Amo compartilhar conhecimento e tenho contribuído com as comunidades da região
 
 Recebi o prêmio de Mentor do Ano na 4° Cerimônia Anual do Prêmio Jaraqui Graúdo organizado pelo Jaraqui Valley em 2019 e fui considerado um dos evangelistas que contribui para o ecossistema empreendedor em Manaus/AM pela Abstartups em 2020.
 
-Atualmente, sou professor na Faculdade Martha Falcão e atuo na área de garantia da qualidade (quality assurance - QA) na TPV Technology.
+Atualmente, atuo na área de garantia da qualidade (quality assurance - QA) no time de desenvolvimento do middleware de TV Digital Ginga na TPV Technology.
 
 Meu currículum lattes: [http://lattes.cnpq.br/3338550004854341][lattes]{:target="_black"}.
 
