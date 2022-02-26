@@ -1,9 +1,0 @@
----
-layout: post
-title:  Ano 2005
-date:   2005-01-01
-img: img/portfolio/2005/2005.png
-modalID: 2005
-category: Atividades
----
-Início das atividades de 2005.

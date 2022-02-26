@@ -1,9 +1,0 @@
----
-layout: post
-title:  Ano 2010
-date:   2010-01-01
-img: img/portfolio/2010/2010.png
-modalID: 2010
-category: Atividades
----
-Início das atividades de 2010.

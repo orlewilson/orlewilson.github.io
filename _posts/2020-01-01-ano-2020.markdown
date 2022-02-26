@@ -1,9 +1,0 @@
----
-layout: post
-title:  Ano 2020
-date:   2020-01-01
-img: img/portfolio/2020/2020.png
-modalID: 2020
-category: Atividades
----
-Início das atividades de 2020.

@@ -1,9 +1,0 @@
----
-layout: post
-title:  Ano 2016
-date:   2016-01-01
-img: img/portfolio/2016/2016.png
-modalID: 2016
-category: Atividades
----
-Início das atividades de 2016.
