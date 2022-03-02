@@ -2,7 +2,7 @@
 layout: page
 title: Sobre Mim
 permalink: /about/
-weight: 5
+weight: 7
 ---
 
 Amo compartilhar conhecimento e tenho contribuído com as comunidades da região por meio de palestras, oficinas, mentoria nos seguintes temas: Arduino, Internet das Coisas (Internet of Things - IoT), Metodologias Ativas, Python, Git, Qualidade de Experiência (Quality of Experience - QoE), Garantia de Qualidade (Quality Assurance - QA), Empreendedorismo, Inovação, Produto Mínimo Viável (Minimum Viable Product - MVP).

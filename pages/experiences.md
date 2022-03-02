@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Atuação
+title: Experiência
 permalink: /experiences/
 weight: 1
 ---

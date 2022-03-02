@@ -6,14 +6,14 @@
         resultsContainer: document.getElementById('results-container'),
         searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title} - {year}</a>',
         noResultsText: '<li class="list-group-item">Sem resultados</li>',
-        json: '{{ '/search-projects.json' | relative_url }}'
+        json: '{{ '/search-courses.json' | relative_url }}'
       })
 </script>
 
 <div class="card-group mt-3">
 
   <!-- Local Projects -->
-  {% for project in site.projects reversed%}
+  {% for project in site.courses reversed%}
 
     {% assign type = "local" %}
     {% assign project_id =  project.name | slugify %}

@@ -1,0 +1,15 @@
+---
+layout: null
+---
+[
+  {% for post in site.projects reversed %}
+    {
+      "title"    : "{{ post.name }}",
+      "category" : "{{ post.tools | join: ', '}}",
+      "url"      : "{{ post.external_url | default: post.url | relative_url }}",
+      "date"     : "{{ post.date }}",
+      "content"  : "{{ post.tools | join: ', '}}",
+      "year"  	 : "{{ post.date | date: "%Y"}}"
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

@@ -48,6 +48,12 @@ collections:
   events:
     output: true
     permalink: /events/:name
+  projects:
+    output: true
+    permalink: /projects/:name
+  courses:
+    output: true
+    permalink: /courses/:name
 
 # Default values for collections
 defaults:
@@ -66,7 +72,16 @@ defaults:
       type: "events"
     values:
       layout: "page"
-
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
+      type: "courses"
+    values:
+      layout: "page"
 
 # Posts default Permalink
 #permalink: articles/:title
