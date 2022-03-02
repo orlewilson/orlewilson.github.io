@@ -1,4 +1,5 @@
 # Site settings
+# bundle exec jekyll server
 title: Orlewilson Bentes Maia
 description: >- # this means to ignore newlines until "baseurl:"
   Pesquisador - Professor - Mentor - Arduino - Python - Internet das Coisas (IoT) - Garantia de Qualidade (QA) - Empreendedorismo - Produto Mínimo Viável (MVP) - Metodologias Ativas
