@@ -1,6 +1,6 @@
 ---
 name:  	Gamer jogo educacional para auxílio na aprendizagem do modelo entidade relacionamento na disciplina banco de dados
-tools: 	[graduação, orientação, uninorte, 2017]
+tools: 	[graduação, orientação, tcc, uninorte, 2017]
 image: 	../img/projects/2017/uninorte-orientacao-renan-tiago.png
 date: 	2017-06-29
 ---

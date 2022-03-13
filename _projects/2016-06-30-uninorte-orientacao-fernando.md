@@ -1,6 +1,6 @@
 ---
 name:  	Análise comparativa entre as ferramentas open source opennebula e cloudstack para criação de estações de laboratórios em nuvens
-tools: 	[graduação, orientação, uninorte, 2016]
+tools: 	[graduação, orientação, tcc, uninorte, 2016]
 image: 	../img/projects/2016/uninorte-orientacao-fernando.png
 date: 	2016-06-30
 ---

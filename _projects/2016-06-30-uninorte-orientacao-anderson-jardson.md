@@ -1,6 +1,6 @@
 	---
 name:  	Análise de sentimento utilizando a ferramenta rapidminer
-tools: 	[graduação, orientação, uninorte, 2016]
+tools: 	[graduação, orientação, tcc, uninorte, 2016]
 image: 	../img/projects/2016/uninorte-orientacao-anderson-jardson.png
 date: 	2016-06-30
 ---

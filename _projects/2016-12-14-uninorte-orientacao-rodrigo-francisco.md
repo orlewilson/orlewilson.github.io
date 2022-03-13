@@ -1,6 +1,6 @@
 ---
 name:  	Sistema de mobilidade urbana - SIMUBUS
-tools: 	[graduação, orientação, uninorte, 2016]
+tools: 	[graduação, orientação, tcc, uninorte, 2016]
 image: 	../img/projects/2016/uninorte-orientacao-rodrigo-francisco.png
 date: 	2016-12-14
 ---

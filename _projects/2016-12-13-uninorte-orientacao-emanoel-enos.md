@@ -1,6 +1,6 @@
 ---
 name:  	O uso da realidade aumentada para apoio ao professor no ensino da disciplina organização e arquitetura de computadores
-tools: 	[graduação, orientação, uninorte, 2016]
+tools: 	[graduação, orientação, tcc, uninorte, 2016]
 image: 	../img/projects/2016/uninorte-orientacao-emanoel-enos.png
 date: 	2016-12-13
 ---

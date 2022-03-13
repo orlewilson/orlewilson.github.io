@@ -1,6 +1,6 @@
 ---
 name:  	Computação em nuvem analise e comparação de ferramentas open source do modelo iaas, buscando melhor desempenho de dispositivos finais
-tools: 	[graduação, orientação, uninorte, 2016]
+tools: 	[graduação, orientação, tcc, uninorte, 2016]
 image: 	../img/projects/2016/uninorte-orientacao-andrew-eduardo-william.png
 date: 	2016-07-01
 ---
