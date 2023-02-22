@@ -2,7 +2,7 @@
 # bundle exec jekyll server
 title: Orlewilson Bentes Maia
 description: >- # this means to ignore newlines until "baseurl:"
- Analista de Testes e Qualidade de Software (QA) - Professor - Palestrante - Arduino - Python - Empreendedorismo - Metodologias Ativas
+ Analista de Testes e Qualidade de Software (QA) - TV Digital - Professor - Palestrante - Mentoria - Arduino - Python - Empreendedorismo - Metodologias Ativas
 baseurl: ""  # the subpath of your site, e.g. /blog
 url: "https://orlewilson.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 repository: YoussefRaafatNasry/portfolYOU
@@ -19,7 +19,7 @@ author:
 # behance       : your_username
 # dribbble      : your_username
   email         : prof.orlewilson@gmail.com
-  facebook      : orlewilsonmaia
+# facebook      : orlewilsonmaia
   github        : orlewilson
 # gitlab        : your_username
   instagram     : orlewilson
@@ -30,7 +30,7 @@ author:
 # stackoverflow : your_user_id
 # tumblr        : your_username.tumblr.com
 # twitch        : your_username
-  twitter       : orlewilson
+# twitter       : orlewilson
 # vimeo         : your_username
   youtube       : channel/UCrmTzjmyiezVxQYpDFHD-9A
 
