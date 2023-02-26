@@ -1,66 +1,20 @@
 - title: TPV Vision Innovator 
   from: 2018
   to: atual
-  description: Pesquisador na TPV Technology desde 15/10/2018 atuando na área de qualidade de software de projetos 
-               e no desenvolvimento de novas funcionalidades do middleware de TV digital Ginga.
+  description: Pesquisador na TPV Technology desde 15/10/2018 atuando na área de garantia da qualidade (quality assurance - QA) 
+               durante o desenvolvimento de funcionalidades do middleware brasileiro de TV digital Ginga em televisores da Philips e AOC.
 
 - title: Faculdade Martha Falcão
   from: 2016
-  to: atual
+  to: 2021
   description: Professor de disciplinas presenciais no cursos de Computação, Administração e Engenharias na 
-               Faculdade Martha Falcão desde 03/10/2016. 
+               Faculdade Martha Falcão durante o período de 03/10/2016 a 19/12/2021. 
 
-- title: Uninorte
+- title: Faculdade Uninorte
   from: 2014
   to: 2018
   description: Professor de disciplinas presenciais e a distância nos cursos de Computação, Engenharias, Saúde e 
                Humanas no Centro Universitário do Norte (Uninorte) durante o período de 04/08/2014 a 20/01/2018. 
-
-- title: Projeto Desenvolvimento de Aplicativos para Dispositivos Móveis Android  
-  from: 2013
-  to: 2014
-  description: Líder de projetos durante o Projeto Desenvolvimento de Aplicativos para Dispositivos Móveis Android no 
-               período de de 01/11/2013 a 01/12/2014 no Centro de P&D em Tecnologia Eletrônica da 
-               Informação (Ceteli) da Universidade Federal do Amazonas (Ufam) em parceria com o Sidia da Samsung.
-
-- title: Projeto Senai/AM Interativo 
-  from: 2012
-  to: 2012
-  description: Consultor no desenvolvimento de um aplicativo interativo Ginga-NCL Senai/AM Interativo no Senai
-               durante o período de 01/02/2012 a 31/07/2012.
-
-- title: Projeto PROCYON – Sistema de Telecomandos para TVD por Tablet 
-  from: 2012
-  to: 2012
-  description: Consultor no Projeto PROCYON – Sistema de Telecomandos para TVD por Tablet desenvolvido pelos 
-               alunos André Luiz Tiúba Mendonça, Glaucia Rodrigues Lira e Thiago Augisto Moreira dos Santos 
-               sob orientação do prof. Daniel Sandoval da Fundação Nokia de Ensino durante o período de 
-               30/01/2012 a 26/10/2012.
-
-- title: Projeto Pesquisa Trajetórias, Perfis e Padrões de Interação Das Elites Estaduais Brasileiras 
-  from: 2011
-  to: 2012
-  description: Consultor no desenvolvimento de um aplicativo Android 2.3 para tablet, coordenado pela profa. 
-               Dra. Maria Regina de Paula Mota, com o propósito de informatizar um questionário do projeto 
-               Pesquisa Trajetórias, Perfis e Padrões de Interação das Elites Estaduais Brasileiras durante 
-               o período de 01/11/2011 a 31/03/2012.
-
-- title: Projeto Aplicativo Interativo Ginga-NCL Programa Trilhas do Sabor – Rede Minas 
-  from: 2011
-  to: 2011
-  description: Consultor no desenvolvimento de um aplicativo interativo usando Ginga-NCL para o Programa Trilhas 
-               do Sabor da Rede Minas coordenado pela profa. Dra. Maria Regina de Paula Mota
-               durante o período de 01/08/2011 a 31/12/2011.
-
-- title: Projeto Desenvolvimento de Competências em Software Livre e Software de Código Aberto para Plataformas Móveis e Embarcadas 
-  from: 2009
-  to: 2011
-  description: Líder de trabalhos durante o projeto Desenvolvimento de Competências em Software Livre e Software de Código 
-               Aberto para Plataformas Móveis e Embarcadas durante o período de 01/04/2009 a 31/12/2009 (AutHomeCtrl, TransInfo, 
-               qDominoes e qMarket) e 01/12/2010 a 31/05/2011 (Fuel, IMC Fácil, Eddy, Canto dos Pássaros, Vacinas, Feira Brasil, 
-               Puzzle, Dengue, Viaja Brasil, Eco Forca e Salvando a Floresta) no Centro de P&D em Tecnologia Eletrônica da 
-               Informação (Ceteli) da Universidade Federal do Amazonas (Ufam) em parceria com o Instituto Nokia de Desenvolvimento 
-               da Nokia (INdT). 
 
 - title: Faculdade La Salle 
   from: 2009
@@ -68,7 +22,7 @@
   description: Professor de disciplinas presenciais no curso de Sistemas de Informação na Faculdade La Salle 
                Manaus durante o período de 02/03/2009 a 15/12/2009. 
 
-- title: Esbam
+- title: Faculdade Esbam
   from: 2009
   to: 2009
   description: Professor de disciplinas presenciais no curso de Sistemas de Informação na Escola Superior Batista 
@@ -79,14 +33,6 @@
   to: 2007
   description: Programador de sistemas no grupo Rede Amazônica durante o período de 22/05/2006 a 27/07/2007 
                realizando atividades de desenvolvimento de sistemas web usando .Net e suporte a usuários.
-
-- title: Projeto Banco de Dados para Diagnóstico em Tanques-Rede no Amazonas 
-  from: 2005
-  to: 2006
-  description: Consultor na contrução do banco de dados para diagnóstico da criação de peixes em tanques-rede no 
-               Estado do Amazonas, no âmbito do projeto Criação de peixes em tanques-rede em lagos da Amazônia 
-               Central coordenado pela profa. Dra. Marle Angélica Villacorta Correa, durante o período de 
-               01/11/2005 a 30/04/2006.
 
 - title: Instituto Genius de Tecnologia
   from: 2005

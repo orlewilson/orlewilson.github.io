@@ -1,0 +1,34 @@
+<!-- Simple-Jekyll-Search CDN -->
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<script>
+  var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title} - {year}</a>',
+        noResultsText: '<li class="list-group-item">Sem resultados</li>',
+        json: '{{ '/search-courses.json' | relative_url }}'
+      })
+</script>
+
+<div class="card-group mt-3">
+
+  <!-- Local Projects -->
+  {% for project in site.courses reversed%}
+
+    {% assign type = "local" %}
+    {% assign project_id =  project.name | slugify %}
+    {% assign project_img = project.image %}
+    {% assign project_name = project.name %}
+    {% assign project_desc = project.description %}
+    {% assign project_tools = project.tools %}
+
+    {% assign project_url = project.url | relative_url %}
+ 
+    <div class="col-lg-4 my-3 wow animated fadeIn" data-wow-delay=".15s">
+      {% include class-card.html %}
+    </div>
+  {% endfor %}
+
+</div>
+
+

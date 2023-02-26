@@ -1,39 +1,19 @@
-<!-- Remote Projects JS -->
-<script src="{{ '/assets/js/remote-projects.js' | relative_url }}"></script>
+<!-- Simple-Jekyll-Search CDN -->
+<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js"></script>
+<script>
+  var sjs = SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        searchResultTemplate: '<a href="{url}" class="list-group-item list-group-item-action">{title} - {year}</a>',
+        noResultsText: '<li class="list-group-item">Sem resultados</li>',
+        json: '{{ '/search-projects.json' | relative_url }}'
+      })
+</script>
 
-<div class="card-columns m-3 mt-5">
-
-  <!-- Remote Projects -->
-  {% for remote_project in page.remote_projects %}
-
-    {% for repo in site.github.public_repositories %}
-      {% if remote_project == repo.name %}
-        {% assign project = repo %}
-      {% endif %}
-    {% endfor %}
-
-    {% assign words = project.name | split: '-' %}
-    {% capture titlecase %}
-      {% for word in words %}
-        {{ word | capitalize }}
-      {% endfor %}
-    {% endcapture %}
-
-    {% assign type = "remote" %}
-    {% assign project_id = project.name %}
-    {% assign project_name = titlecase %}
-    {% assign project_desc = project.description %}
-    {% assign project_url = project.html_url %}
-
-    {% include project-card.html %}
-
-    <script>get_tools("{{ project_id }}")</script>
-    <script>get_meta_image("{{ project_id }}")</script>
-
-  {% endfor %}
+<div class="card-group mt-3">
 
   <!-- Local Projects -->
-  {% for project in site.projects %}
+  {% for project in site.projects reversed%}
 
     {% assign type = "local" %}
     {% assign project_id =  project.name | slugify %}
@@ -42,14 +22,13 @@
     {% assign project_desc = project.description %}
     {% assign project_tools = project.tools %}
 
-    {% if project.external_url %}
-      {% assign project_url = project.external_url %}
-    {% else %}
-      {% assign project_url = project.url | relative_url %}
-    {% endif %}
-
-    {% include project-card.html %}
-
+    {% assign project_url = project.url | relative_url %}
+ 
+    <div class="col-lg-4 my-3 wow animated fadeIn" data-wow-delay=".15s">
+      {% include class-card.html %}
+    </div>
   {% endfor %}
 
 </div>
+
+
