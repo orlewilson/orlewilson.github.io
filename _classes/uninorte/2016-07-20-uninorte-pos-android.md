@@ -1,6 +1,6 @@
 ---
 name:  	Desenvolvimento de Aplicativos para Android I
-tools: 	[pós-graduacao, uninorte, 2016]
+tools: 	[pós-graduação, uninorte, 2016]
 image: 	../img/classes/uninorte/2016/uninorte-pos-android.png
 date: 	2016-07-20
 ---

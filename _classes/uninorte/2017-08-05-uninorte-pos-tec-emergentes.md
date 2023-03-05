@@ -1,6 +1,6 @@
 ---
 name:  	Tecnologias Emergentes
-tools: 	[pós-graduacao, uninorte, 2017]
+tools: 	[pós-graduação, uninorte, 2017]
 image: 	../img/classes/uninorte/2017/uninorte-pos-tec-emergentes.png
 date: 	2017-08-05
 ---

@@ -1,6 +1,6 @@
 ---
 name:  	Gerenciamento de Projetos Digitais
-tools: 	[pós-graduacao, fmf, 2021]
+tools: 	[pós-graduação, fmf, 2021]
 image: 	../img/classes/fmf/2021/fmf-pos-ger-projetos-digitais.png
 date: 	2021-10-02
 ---

@@ -1,6 +1,6 @@
 ---
 name:  	Empreendedorismo e Inovação
-tools: 	[pós-graduacao, fmf, 2022]
+tools: 	[pós-graduação, fmf, 2022]
 image: 	../img/classes/fmf/2022/fmf-pos-empreendedorismo-inovacao-1.png
 date: 	2022-08-24
 ---

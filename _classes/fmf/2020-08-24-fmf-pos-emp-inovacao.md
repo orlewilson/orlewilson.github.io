@@ -1,6 +1,6 @@
 ---
 name:  	Empreendedorismo e Inovação
-tools: 	[pós-graduacao, fmf, 2020]
+tools: 	[pós-graduação, fmf, 2020]
 image: 	../img/classes/fmf/2020/fmf-pos-emp-inovacao.png
 date: 	2020-08-24
 ---

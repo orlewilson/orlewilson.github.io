@@ -1,6 +1,6 @@
 ---
 name:  	Mídias Sociais e Redes Sociais
-tools: 	[pós-graduacao, estácio, 2017]
+tools: 	[pós-graduação, estácio, 2017]
 image: 	../img/classes/estacio/2017/estacio-pos-msrs.png
 date: 	2017-05-27
 ---

@@ -1,6 +1,6 @@
 ---
 name:  	Banco de Dados para Sistemas Web
-tools: 	[pós-graduacao, uninorte, 2015]
+tools: 	[pós-graduação, uninorte, 2015]
 image: 	../img/classes/uninorte/2015/uninorte-pos-bd.png
 date: 	2015-09-12
 ---

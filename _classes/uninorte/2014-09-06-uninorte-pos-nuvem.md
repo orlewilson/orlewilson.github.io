@@ -1,6 +1,6 @@
 ---
 name:  	Computação em Nuvens
-tools: 	[pós-graduacao, uninorte, 2014]
+tools: 	[pós-graduação, uninorte, 2014]
 image: 	../img/classes/uninorte/2014/uninorte-pos-nuvem.png
 date: 	2014-09-06
 ---

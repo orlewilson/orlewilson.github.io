@@ -1,6 +1,6 @@
 ---
 name:  	Revisão de Programação
-tools: 	[pós-graduacao, cesar school, 2022]
+tools: 	[pós-graduação, cesar school, 2022]
 image: 	../img/classes/cesar/2022/cesar-pos-revisao-programacao-capa.png
 date: 	2022-02-19
 ---
