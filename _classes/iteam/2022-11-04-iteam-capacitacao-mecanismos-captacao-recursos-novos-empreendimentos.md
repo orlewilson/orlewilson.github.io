@@ -1,6 +1,6 @@
 ---
 name:  	Mecanismos para Captação de Recursos para Novos Empreendimentos
-tools: 	[pós-graduacao, iteam, 2022]
+tools: 	[pós-graduação, iteam, 2022]
 image: 	../img/classes/iteam/2022/iteam-capacitacao-mecanismos-captacao-recursos-novos-empreendimentos-1.png
 date: 	2022-11-04
 ---
