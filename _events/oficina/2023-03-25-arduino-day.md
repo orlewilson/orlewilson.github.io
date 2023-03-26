@@ -7,7 +7,7 @@ date: 	2023-03-25
 
 ![](../img/events/oficina/2023/arduino-day-2023.png)
 
-Oficina **Git + Arduino** ministrada no **Arduino Day 2023** organizado pelo [Fab Lab Manaus][fab-lab-manaus]{:target="_black"} no dia 25 de março de 2023. 
+Oficina **Git + Arduino** ministrada no **Arduino Day 2023 Manaus** organizado pelo [Fab Lab Manaus][fab-lab-manaus]{:target="_black"} no dia 25 de março de 2023. 
 
 Aprendemos sobre controle de versão e como aplicá-lo usando os principais comandos do Git (git status, log, add, commit, branch, merge) por meio de um projeto prático com Arduino.
 
