@@ -2,7 +2,7 @@
 # bundle exec jekyll server
 title: Orlewilson Bentes Maia
 description: >- # this means to ignore newlines until "baseurl:"
- Analista de Testes e Qualidade de Software (QA) - TV Digital - Professor - Palestrante - Consultor - Mentor - Arduino - Python - Empreendedorismo - Metodologias Ativas
+ Analista de Testes e Qualidade de Software (QA) - TV Digital - Manufatura Avançada - Empreendedorismo
 baseurl: ""  # the subpath of your site, e.g. /blog
 url: "https://orlewilson.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 repository: YoussefRaafatNasry/portfolYOU
