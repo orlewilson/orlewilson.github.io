@@ -1,0 +1,146 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '~/layouts/PageLayout.astro';
+import ExpertiseNav from '~/components/portfolio/ExpertiseNav.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import ClassesByInstitution from '~/components/portfolio/ClassesByInstitution.astro';
+import ActivityGrid from '~/components/portfolio/ActivityGrid.astro';
+import ActivityCard from '~/components/portfolio/ActivityCard.astro';
+import SectionNav from '~/components/portfolio/SectionNav.astro';
+import { byDateDesc, eventCards, viewerPhotos } from '~/utils/activities';
+import { getPermalink } from '~/utils/permalinks';
+
+import { expertise } from '~/data/expertise';
+
+const area = expertise.find(({ slug }) => slug === 'education')!;
+
+const classes = await getCollection('classes');
+
+const talks = await eventCards(['palestra']);
+
+// Treinamentos: cursos e treinamentos corporativos + oficinas.
+const courses = await Promise.all(
+  (await getCollection('courses')).map(async (entry) => ({
+    title: entry.data.title,
+    date: entry.data.date,
+    meta: `${entry.data.date.getUTCFullYear()} · ${entry.data.category}`,
+    cover: entry.data.cover,
+    photos: await viewerPhotos([entry.data.cover]),
+    Content: (await render(entry)).Content,
+  }))
+);
+const trainings = [...courses, ...(await eventCards(['oficina']))].sort(byDateDesc);
+
+// Atividades com alunos fora da sala de aula. O Call for Startup (também "competição") fica em Empreendedorismo.
+const beyond = await eventCards(
+  ['competição', 'visita técnica', 'organização'],
+  ({ id }) => !id.includes('call-for-startup')
+);
+const awards = await eventCards(['premiação'], ({ id }) => id.includes('academic-stars'));
+const interviews = await eventCards(['entrevista']);
+
+const sections = [
+  { id: 'disciplinas', label: 'Docência', count: classes.length, icon: 'tabler:school' },
+  { id: 'palestras', label: 'Palestras', count: talks.length, icon: 'tabler:microphone' },
+  { id: 'treinamentos', label: 'Treinamentos', count: trainings.length, icon: 'tabler:presentation' },
+  { id: 'alem-da-sala', label: 'Além da sala de aula', count: beyond.length, icon: 'tabler:robot' },
+  { id: 'reconhecimentos', label: 'Reconhecimentos', count: awards.length, icon: 'tabler:award' },
+  { id: 'na-midia', label: 'Na mídia', count: interviews.length, icon: 'tabler:news' },
+];
+
+const metadata = {
+  title: area.title,
+  description: `${area.tagline} ${classes.length} disciplinas, ${talks.length} palestras e ${trainings.length} cursos, treinamentos e oficinas.`,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Slide 5 -->
+
+  <HeroText tagline="Áreas de atuação" title={area.title} subtitle={area.tagline} />
+
+  <Stats
+    classes={{ container: 'pt-4 md:pt-6 lg:pt-6' }}
+    stats={[
+      { amount: '+2.000', title: 'alunos e profissionais', icon: 'tabler:users-group' },
+      ...sections.slice(0, 3).map(({ label, count, icon }) => ({ amount: count, title: label, icon })),
+    ]}
+  />
+
+  <SectionNav sections={sections} sticky />
+
+  <ClassesByInstitution
+    id="disciplinas"
+    tagline="Docência"
+    title="Em sala de aula, da graduação à pós"
+  />
+
+  <ActivityGrid
+    id="palestras"
+    tagline="Palestras"
+    title="Conhecimento compartilhado em eventos"
+  >
+    {
+      talks.map(({ Content, title, meta, cover, photos }) => (
+        <ActivityCard title={title} meta={meta} cover={cover} photos={photos} icon="tabler:microphone">
+          <Content />
+        </ActivityCard>
+      ))
+    }
+  </ActivityGrid>
+
+  <ActivityGrid
+    id="treinamentos"
+    tagline="Treinamentos"
+    title="Aprender fazendo, com a mão na massa"
+  >
+    {
+      trainings.map(({ Content, title, meta, cover, photos }) => (
+        <ActivityCard title={title} meta={meta} cover={cover} photos={photos} icon="tabler:presentation">
+          <Content />
+        </ActivityCard>
+      ))
+    }
+  </ActivityGrid>
+
+  <ActivityGrid id="alem-da-sala" tagline="Além da sala de aula" title="Robótica, visitas técnicas e eventos acadêmicos">
+    {
+      beyond.map(({ Content, title, meta, cover, photos }) => (
+        <ActivityCard title={title} meta={meta} cover={cover} photos={photos} icon="tabler:robot">
+          <Content />
+        </ActivityCard>
+      ))
+    }
+  </ActivityGrid>
+
+  <ActivityGrid id="reconhecimentos" tagline="Reconhecimentos" title="Prêmios e conquistas">
+    {
+      awards.map(({ Content, title, meta, cover, photos }) => (
+        <ActivityCard title={title} meta={meta} cover={cover} photos={photos} icon="tabler:award">
+          <Content />
+        </ActivityCard>
+      ))
+    }
+  </ActivityGrid>
+
+  <ActivityGrid id="na-midia" tagline="Na mídia" title="Entrevistas e reportagens">
+    {
+      interviews.map(({ Content, title, meta, cover, photos }) => (
+        <ActivityCard title={title} meta={meta} cover={cover} photos={photos} icon="tabler:news">
+          <Content />
+        </ActivityCard>
+      ))
+    }
+  </ActivityGrid>
+
+  <CallToAction
+    title="Treinamentos para a sua equipe ou evento"
+    subtitle="QA, Python, IoT, DevOps e metodologias ativas, em formatos ajustados ao seu contexto."
+    actions={[{ variant: 'primary', text: 'Entrar em contato', href: getPermalink('/contact'), icon: 'tabler:mail' }]}
+  />
+
+  <ExpertiseNav current="education" />
+</Layout>

@@ -1,0 +1,122 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import ProfileHero from '~/components/portfolio/ProfileHero.astro';
+import ProfileHighlights from '~/components/portfolio/ProfileHighlights.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Trajectory from '~/components/portfolio/Trajectory.astro';
+import StructuredData from '~/components/common/StructuredData.astro';
+import { SITE, I18N } from 'astrowind:config';
+import { getPermalink } from '~/utils/permalinks';
+
+import { profile } from '~/data/profile';
+import { metrics } from '~/data/metrics';
+import { expertise } from '~/data/expertise';
+import { education } from '~/data/education';
+import { experience } from '~/data/experience';
+
+const metadata = {
+  title: `${profile.name} — ${profile.pillars.join(', ')}`,
+  ignoreTitleTemplate: true,
+  description: profile.bio,
+};
+
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE?.site}/#website`,
+    name: SITE?.name,
+    url: SITE?.site,
+    inLanguage: I18N?.language,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: profile.name,
+    url: SITE?.site,
+    sameAs: [...profile.socials.map(({ href }) => href), profile.lattes],
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <StructuredData slot="head" schema={structuredData} />
+
+  <!-- Hero: slide 1 -->
+
+  <ProfileHero
+    title={profile.name}
+    subtitle={profile.tagline}
+    image={profile.photo}
+    imagePosition="62% 40%"
+    items={profile.areas}
+  />
+
+  <!-- Quem Sou Eu: slide 2 -->
+
+  <ProfileHighlights id="perfil" tagline="Quem sou eu" title="Conectando indústria, pesquisa e sala de aula" text={profile.bio} />
+  <Stats stats={metrics} countUp classes={{ container: 'pt-10 md:pt-12 lg:pt-14' }} />
+
+  <!-- Eixos de atuação: slide 4 (os detalhes ficam em /expertise/*) -->
+
+  <Features2
+    id="atuacao"
+    tagline="Áreas de atuação"
+    title="Quatro frentes, um mesmo propósito"
+    columns={2}
+    items={expertise.map(({ slug, title, summary, colorIcon }) => ({
+      title,
+      description: summary,
+      icon: colorIcon,
+      href: getPermalink(`/expertise/${slug}`),
+    }))}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Trajetória: slide 3 + experiência (antiga página Sobre) -->
+
+  <Trajectory
+    id="trajetoria"
+    tagline="Trajetória"
+    title="Formação e experiência"
+    columns={[
+      {
+        title: 'Formação acadêmica',
+        icon: 'tabler:school',
+        entries: education.map(({ period, title, institution, description }, index) => ({
+          period,
+          title: `${title} · ${institution}`,
+          description,
+          highlight: index === 0,
+        })),
+      },
+      {
+        title: 'Experiência profissional',
+        icon: 'tabler:briefcase',
+        entries: experience.map(({ period, title, description, current }) => ({
+          period,
+          title,
+          description,
+          highlight: current,
+        })),
+      },
+    ]}
+  />
+
+  <!-- Contato: slide 11 -->
+
+  <CallToAction
+    title="Vamos conversar?"
+    subtitle={`${profile.availability} Publicações, orientações e produção técnica estão no Currículo Lattes.`}
+    actions={[
+      { variant: 'primary', text: 'Entrar em contato', href: getPermalink('/contact'), icon: 'tabler:mail' },
+      { text: 'Currículo Lattes', href: profile.lattes, target: '_blank', icon: 'tabler:file-cv' },
+    ]}
+  />
+</Layout>

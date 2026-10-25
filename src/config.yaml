@@ -1,0 +1,70 @@
+site:
+  name: Orlewilson Bentes Maia
+  site: 'https://orlewilson.github.io/'
+  base: '/'
+  trailingSlash: true
+
+  googleSiteVerificationId: false
+
+# Default SEO metadata
+metadata:
+  title:
+    default: Orlewilson Bentes Maia
+    template: '%s — Orlewilson Bentes Maia'
+  description: 'Doutor em Engenharia Elétrica. Qualidade de Software, Educação e Inovação: experiência que conecta tecnologia, qualidade, educação e inovação.'
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: Orlewilson Bentes Maia
+    images:
+      - url: '~/assets/images/default.png'
+        width: 1200
+        height: 628
+    type: website
+  twitter:
+    cardType: summary_large_image
+
+i18n:
+  language: pt-br
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: false
+    postsPerPage: 8
+
+    post:
+      isEnabled: true
+      permalink: '/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      robots:
+        index: true
+
+    list:
+      isEnabled: true
+      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
+      robots:
+        index: true
+
+    category:
+      isEnabled: true
+      pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
+      robots:
+        index: true
+
+    tag:
+      isEnabled: true
+      pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
+      robots:
+        index: false
+
+    isRelatedPostsEnabled: true
+    relatedPostsCount: 4
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: null # or "G-XXXXXXXXXX"
+
+ui:
+  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"

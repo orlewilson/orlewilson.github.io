@@ -1,0 +1,154 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import ActivityCard from '~/components/portfolio/ActivityCard.astro';
+import ActivityViewer from '~/components/portfolio/ActivityViewer.astro';
+import { viewerPhotos } from '~/utils/activities';
+import { institutions } from '~/data/institutions';
+
+// Classes grouped by institution, with level filters. Works without
+// JavaScript: the groups are native <details> and every card stays visible.
+
+export interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+}
+
+const { id, title, subtitle, tagline } = Astro.props;
+
+const LEVELS = [
+  { key: 'graduação', label: 'Graduação' },
+  { key: 'pós-graduação', label: 'Pós-graduação' },
+  { key: 'extensão', label: 'Extensão' },
+  { key: 'técnico', label: 'Técnico' },
+];
+const levelLabel = Object.fromEntries(LEVELS.map(({ key, label }) => [key, label]));
+
+const classes = await Promise.all(
+  (await getCollection('classes')).map(async (entry) => ({
+    entry,
+    Content: (await render(entry)).Content,
+    photos: await viewerPhotos([entry.data.cover, ...entry.data.images]),
+  }))
+);
+
+const bySlug = new Map<string, typeof classes>();
+classes.forEach((item) => bySlug.set(item.entry.data.institution, [...(bySlug.get(item.entry.data.institution) ?? []), item]));
+
+const groups = [...bySlug]
+  .map(([slug, items]) => {
+    items.sort((a, b) => b.entry.data.date.valueOf() - a.entry.data.date.valueOf());
+    return {
+      slug,
+      fullName: institutions[slug]?.fullName ?? slug,
+      last: items[0].entry.data.date.getUTCFullYear(),
+      items,
+    };
+  })
+  .sort((a, b) => b.last - a.last || b.items.length - a.items.length);
+
+const countLevel = (key: string) => classes.filter(({ entry }) => entry.data.level === key).length;
+const filters = [
+  { key: 'all', label: 'Todas', count: classes.length },
+  ...LEVELS.map(({ key, label }) => ({ key, label, count: countLevel(key) })).filter(({ count }) => count > 0),
+  { key: 'ead', label: 'EAD', count: classes.filter(({ entry }) => entry.data.ead).length },
+];
+---
+
+<!--
+  Always visible: the wrapper fades in once 25% of it is on screen, and with
+  the groups open this section can be too tall to ever reach that ratio.
+-->
+<WidgetWrapper id={id} containerClass="max-w-6xl mx-auto motion-safe:md:opacity-100">
+  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+
+  <aw-class-filter>
+    <div class="mb-8 flex flex-wrap justify-center gap-2" role="group" aria-label="Filtrar por nível">
+      {
+        filters.map(({ key, label, count }) => (
+          <button
+            type="button"
+            data-filter={key}
+            aria-pressed={key === 'all' ? 'true' : 'false'}
+            class="rounded-full border border-gray-300 px-4 py-1.5 text-sm font-medium transition hover:border-primary hover:text-primary aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-white dark:border-slate-600"
+          >
+            {label} <span class="opacity-70">({count})</span>
+          </button>
+        ))
+      }
+    </div>
+
+    <ActivityViewer label={tagline}>
+      <div class="space-y-4">
+        {
+          groups.map(({ slug, fullName, items }) => (
+            <details
+              data-group={slug}
+              data-group-name={fullName}
+              class="group rounded-xl border border-gray-200 bg-white dark:border-slate-700 dark:bg-slate-900"
+            >
+              <summary class="flex cursor-pointer list-none items-center gap-4 p-4 md:p-5 [&::-webkit-details-marker]:hidden">
+                <span class="flex-1 text-lg font-bold">{fullName}</span>
+                <span class="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary dark:bg-slate-800 dark:text-blue-300">
+                  <span data-group-count>{items.length}</span>
+                  <span class="sr-only">disciplinas</span>
+                </span>
+                <Icon name="tabler:chevron-down" class="h-5 w-5 transition group-open:rotate-180" />
+              </summary>
+
+              <ul class="grid list-none grid-cols-2 gap-4 px-4 pb-5 sm:grid-cols-3 md:px-5 lg:grid-cols-4">
+                {items.map(({ entry, Content, photos }) => (
+                  <ActivityCard
+                    title={entry.data.title}
+                    meta={`${entry.data.date.getUTCFullYear()}`}
+                    badges={[levelLabel[entry.data.level], ...(entry.data.ead ? ['EAD'] : [])]}
+                    cover={entry.data.cover}
+                    photos={photos}
+                    data-level={entry.data.level}
+                    data-ead={entry.data.ead ? '' : undefined}
+                  >
+                    <Content />
+                  </ActivityCard>
+                ))}
+              </ul>
+            </details>
+          ))
+        }
+      </div>
+    </ActivityViewer>
+
+    <p data-empty hidden class="py-8 text-center text-muted">Nenhuma disciplina encontrada.</p>
+  </aw-class-filter>
+</WidgetWrapper>
+
+<script>
+  class AwClassFilter extends HTMLElement {
+    connectedCallback() {
+      const items = [...this.querySelectorAll<HTMLLIElement>('li[data-level]')];
+      const groups = [...this.querySelectorAll<HTMLDetailsElement>('details[data-group]')];
+      const filters = [...this.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+      const empty = this.querySelector<HTMLElement>('[data-empty]')!;
+
+      const applyFilter = (key: string) => {
+        filters.forEach((f) => f.setAttribute('aria-pressed', String(f.dataset.filter === key)));
+        items.forEach((item) => {
+          item.hidden = key !== 'all' && (key === 'ead' ? !item.hasAttribute('data-ead') : item.dataset.level !== key);
+        });
+        groups.forEach((group) => {
+          const visible = group.querySelectorAll('li[data-level]:not([hidden])').length;
+          group.hidden = visible === 0;
+          group.querySelector('[data-group-count]')!.textContent = String(visible);
+          // "Todas" keeps every institution closed; a level filter opens the ones with matches.
+          group.open = key !== 'all' && visible > 0;
+        });
+        empty.hidden = items.some((item) => !item.hidden);
+      };
+      filters.forEach((f) => f.addEventListener('click', () => applyFilter(f.dataset.filter!)));
+    }
+  }
+  if (!customElements.get('aw-class-filter')) customElements.define('aw-class-filter', AwClassFilter);
+</script>

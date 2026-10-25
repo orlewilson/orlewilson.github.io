@@ -1,0 +1,10 @@
+---
+title: "Desenvolvimento de um Aplicativo de TV Digital (Quiz) Integrando Tecnologia Móvel e Internet como Canal de Retorno"
+date: 2008-12-12
+kind: "p&d"
+organization: ceteli
+cover: "~/assets/images/projects/ceteli/2008/ceteli-jovens-engenheiros-orientacao.png"
+tags: ["graduação", "extensão", "ufam"]
+---
+
+Monitor do trabalho **Desenvolvimento de um Aplicativo de TV Digital (Quiz) Integrando Tecnologia Móvel e Internet como Canal de Retorno** desenvolvido pelos alunos Alex L. Caranha, Érica R. de Souza, Fábio S. Lima, Francilany M. Lopes e Thiago B. Bezerra durante projeto Treinamento de Jovens Engenheiros para Desenvolvimento de Software para TV Digital no período de 07/01/2008 a 12/12/2008 no Centro de P&D em Tecnologia Eletrônica da Informação (Ceteli) da Universidade Federal do Amazonas (Ufam).

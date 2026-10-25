@@ -1,0 +1,25 @@
+---
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import ActivityViewer from '~/components/portfolio/ActivityViewer.astro';
+
+// Section with a flat grid of ActivityCard items (passed in the default slot).
+
+export interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+}
+
+const { id, title, subtitle, tagline } = Astro.props;
+---
+
+<WidgetWrapper id={id} containerClass="max-w-6xl mx-auto">
+  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+  <ActivityViewer label={tagline}>
+    <ul class="grid list-none grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+      <slot />
+    </ul>
+  </ActivityViewer>
+</WidgetWrapper>

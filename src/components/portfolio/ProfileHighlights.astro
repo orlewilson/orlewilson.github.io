@@ -1,0 +1,21 @@
+---
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+
+// "Quem Sou Eu" (slide 2): the template's standard centered headline with the
+// profile text as subtitle. Meant to be followed by a Stats widget, so the
+// bottom padding is removed (and the headline's bottom margin) to keep both together.
+
+export interface Props {
+  id?: string;
+  tagline?: string;
+  title?: string;
+  text?: string;
+}
+
+const { id, tagline, title, text } = Astro.props;
+---
+
+<WidgetWrapper id={id} containerClass="max-w-6xl mx-auto pb-0 md:pb-0 lg:pb-0">
+  <Headline tagline={tagline} title={title} subtitle={text} classes={{ container: 'max-w-3xl mb-0 md:mb-0' }} />
+</WidgetWrapper>

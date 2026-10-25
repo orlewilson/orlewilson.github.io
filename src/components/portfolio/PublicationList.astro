@@ -1,0 +1,71 @@
+---
+import { Icon } from 'astro-icon/components';
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import type { Publication } from '~/data/publications';
+
+// Selected publications grouped by type, with a link to the full list at the end.
+
+export interface Props {
+  id?: string;
+  tagline?: string;
+  title?: string;
+  subtitle?: string;
+  groups: Array<{ title: string; icon: string; items: Publication[] }>;
+  moreLink?: { text: string; href: string };
+}
+
+const { id, tagline, title, subtitle, groups, moreLink } = Astro.props;
+
+// Highlight the site owner's name inside the author list.
+const OWNER = 'Maia, O. B.';
+const splitAuthors = (authors: string) => authors.split(OWNER);
+---
+
+<WidgetWrapper id={id} containerClass="max-w-4xl mx-auto">
+  <Headline tagline={tagline} title={title} subtitle={subtitle} />
+
+  <div class="space-y-12">
+    {
+      groups.map(({ title, icon, items }) => (
+        <section>
+          <h3 class="mb-6 flex items-center gap-2 text-2xl font-bold font-heading">
+            <Icon name={icon} class="h-7 w-7 text-primary" />
+            {title}
+          </h3>
+          <ol class="space-y-6">
+            {items.map(({ title, authors, venue, year }) => (
+              <li class="flex gap-4 border-l-2 border-primary/30 pl-4">
+                <div>
+                  <p class="font-semibold leading-snug">{title}</p>
+                  <p class="mt-1 text-sm text-muted">
+                    {splitAuthors(authors).map((part, index) => (
+                      <Fragment>
+                        {index > 0 && <strong class="font-semibold text-page dark:text-slate-200">{OWNER}</strong>}
+                        {part}
+                      </Fragment>
+                    ))}
+                  </p>
+                  <p class="mt-1 text-sm">
+                    <span class="italic">{venue}</span>, {year}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))
+    }
+  </div>
+
+  {
+    moreLink && (
+      <div class="mt-12 flex justify-center">
+        <a href={moreLink.href} target="_blank" rel="noopener" class="btn-primary">
+          {moreLink.text}
+          <Icon name="tabler:external-link" class="ml-2 h-5 w-5" />
+        </a>
+      </div>
+    )
+  }
+</WidgetWrapper>

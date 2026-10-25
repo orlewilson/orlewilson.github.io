@@ -1,0 +1,27 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import { getHomePermalink, getPermalink } from '~/utils/permalinks';
+
+const title = `Página não encontrada`;
+---
+
+<Layout metadata={{ title }}>
+  <section class="flex items-center h-full p-16">
+    <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
+      <div class="max-w-md text-center">
+        <h2 class="mb-8 font-bold text-9xl">
+          <span class="sr-only">Erro</span>
+          <span class="text-primary">404</span>
+        </h2>
+        <p class="text-3xl font-semibold md:text-3xl">Não encontramos esta página.</p>
+        <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
+          O endereço pode ter mudado com a nova versão do site. Comece pela página inicial ou veja as áreas de atuação.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href={getHomePermalink()} class="btn-primary">Voltar para o início</a>
+          <a href={getPermalink('/#atuacao')} class="btn">Áreas de atuação</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

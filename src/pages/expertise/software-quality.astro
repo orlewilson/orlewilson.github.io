@@ -1,0 +1,102 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import ExpertiseNav from '~/components/portfolio/ExpertiseNav.astro';
+import SectionNav from '~/components/portfolio/SectionNav.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+// import Stats from '~/components/widgets/Stats.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+import { expertise, services } from '~/data/expertise';
+import { experience } from '~/data/experience';
+// import { metrics } from '~/data/metrics';
+// import { journalArticles, conferencePapers } from '~/data/publications';
+
+const area = expertise.find(({ slug }) => slug === 'software-quality')!;
+const current = experience.find(({ current }) => current)!;
+const qaService = services.find(({ title }) => title.includes('Qualidade de Software'))!;
+
+// Faixa de números desabilitada nesta página. Para reativar, descomente estas linhas,
+// os imports acima e o bloco <Stats> abaixo do título.
+// Anos completos em QA na TPV (desde 15/10/2018) e artigos sobre testes na seleção de publicações.
+// const qaYears = Math.floor((Date.now() - Date.UTC(2018, 9, 15)) / (365.25 * 24 * 60 * 60 * 1000));
+// const testingPapers = [...journalArticles, ...conferencePapers].filter(({ title }) => /test/i.test(title)).length;
+
+const sections = [
+  { id: 'na-industria', label: 'Na indústria' },
+  { id: 'caso', label: 'Caso e resultado' },
+];
+
+const metadata = {
+  title: area.title,
+  description: `${area.tagline} Estratégia de testes, automação e indicadores de qualidade na indústria.`,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Slide 8 -->
+
+  <HeroText tagline="Áreas de atuação" title={area.title} subtitle={area.tagline} />
+
+  {/*
+  <Stats
+    classes={{ container: 'pt-4 md:pt-6 lg:pt-6' }}
+    stats={[
+      { amount: `+${qaYears}`, title: 'anos em QA na TPV Technology', icon: 'tabler:shield-check' },
+      { amount: testingPapers, title: 'artigos sobre testes', icon: 'tabler:file-text' },
+      { amount: metrics[0].amount, title: 'anos em tecnologia', icon: metrics[0].icon },
+    ]}
+  />
+  */}
+
+  <SectionNav sections={sections} sticky />
+
+  <!-- Atuação atual -->
+
+  <Content
+    id="na-industria"
+    tagline="Na indústria"
+    title={`${current.title}, ${current.period}`}
+    image={{
+      src: '~/assets/images/expertise/quality-apresentacao-resultados.jpg',
+      alt: 'Orlewilson na apresentação anual de resultados de qualidade',
+      aspect: '4/3',
+    }}
+  >
+    <Fragment slot="content">
+      <p>{current.description}</p>
+      <p class="mt-4">
+        Atuo como Analista de Testes e Qualidade de Software (QA) nos times de Product Innovation & Digital Convergence e
+        Smart Manufacturing & Process Improvement.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Caso: slide 9 -->
+
+  <Features3
+    id="caso"
+    tagline="Caso e resultado"
+    title="Da estratégia ao indicador"
+    columns={3}
+    items={[
+      { title: 'Desafio', description: area.case.challenge, icon: 'tabler:target' },
+      { title: 'O que fiz', description: area.case.action, icon: 'tabler:tool' },
+      { title: 'Resultado', description: area.case.result, icon: 'tabler:chart-line' },
+    ]}
+  />
+
+  <CallToAction
+    title={qaService.title}
+    subtitle={`${qaService.description} Para equipes que querem entregar software com mais confiança.`}
+    actions={[
+      { variant: 'primary', text: 'Entrar em contato', href: getPermalink('/contact'), icon: 'tabler:mail' },
+      { text: 'Ver serviços', href: getPermalink('/services') },
+    ]}
+  />
+
+  <ExpertiseNav current="software-quality" />
+</Layout>

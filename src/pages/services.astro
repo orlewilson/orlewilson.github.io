@@ -1,0 +1,82 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+import { profile } from '~/data/profile';
+import { expertise, services } from '~/data/expertise';
+
+// Foto de cada caso: os destaques dos slides 5 a 8.
+const CASE_IMAGES: Record<string, { src: string; alt: string }> = {
+  education: {
+    src: '~/assets/images/expertise/education-oficina-ia-2024.jpg',
+    alt: 'Oficina sobre IA para engajamento e inovação na sala de aula',
+  },
+  entrepreneurship: {
+    src: '~/assets/images/expertise/entrepreneurship-manaus-visao-hack-2021.jpg',
+    alt: 'Mentoria no Manaus Visão Hack',
+  },
+  innovation: {
+    src: '~/assets/images/expertise/innovation-icce-2025.jpg',
+    alt: 'Apresentação de artigo no IEEE ICCE em Las Vegas',
+  },
+  'software-quality': {
+    src: '~/assets/images/expertise/quality-apresentacao-resultados.jpg',
+    alt: 'Apresentação anual de resultados de qualidade',
+  },
+};
+
+const metadata = {
+  title: 'Serviços',
+  description: 'Consultoria em qualidade de software, apoio técnico em P&D, treinamentos, palestras e mentoria em inovação.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Serviços: slide 10 -->
+
+  <HeroText
+    tagline="Serviços"
+    title="Como posso contribuir?"
+    subtitle="Experiência aplicada de forma flexível, conforme o contexto e a necessidade de cada projeto."
+  />
+
+  <Features2 columns={2} items={services} />
+
+  <!-- Casos e resultados: slide 9 -->
+
+  {
+    expertise.map(({ slug, title, case: c }, index) => (
+      <Content
+        id={index === 0 ? 'resultados' : undefined}
+        tagline={index === 0 ? 'Na prática' : undefined}
+        title={index === 0 ? 'Desafios que viraram resultados' : undefined}
+        isAfterContent={index > 0}
+        isReversed={index % 2 === 1}
+        content={`<h3 class="text-2xl md:text-3xl font-bold font-heading text-heading">${title}</h3>`}
+        callToAction={{ text: 'Saiba mais', href: getPermalink(`/expertise/${slug}`), icon: 'tabler:arrow-right' }}
+        image={{ ...CASE_IMAGES[slug], aspect: '4/3' }}
+        items={[
+          { title: 'Desafio', description: c.challenge, icon: 'tabler:target' },
+          { title: 'O que fiz', description: c.action, icon: 'tabler:tool' },
+          { title: 'Resultado', description: c.result, icon: 'tabler:trending-up' },
+        ]}
+      />
+    ))
+  }
+
+  <!-- Contato: slide 11 -->
+
+  <CallToAction
+    title="Vamos conversar?"
+    subtitle={`Cada formato é ajustado ao contexto e ao objetivo do projeto. ${profile.availability}`}
+    actions={[
+      { variant: 'primary', text: 'Entrar em contato', href: getPermalink('/contact'), icon: 'tabler:mail' },
+      { text: 'LinkedIn', href: profile.socials[0].href, target: '_blank', icon: 'tabler:brand-linkedin' },
+    ]}
+  />
+</Layout>

@@ -1,0 +1,70 @@
+---
+import { Icon } from 'astro-icon/components';
+import Image from '~/components/common/Image.astro';
+
+// Home cover in the style of the Content widget (reversed): name and areas,
+// each with its icon in a green circle, on the left and a square photo on the
+// right. It slides under the transparent header like the template's Hero.
+
+export interface Props {
+  id?: string;
+  tagline?: string;
+  title: string;
+  subtitle?: string;
+  image: { src: string; alt: string };
+  /** CSS object-position for the square crop of the photo, e.g. "62% 40%". */
+  imagePosition?: string;
+  items?: Array<{ title: string; description?: string; icon?: string }>;
+}
+
+const { id, tagline, title, subtitle, image, imagePosition = '50% 50%', items = [] } = Astro.props;
+---
+
+<section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="pt-0 md:pt-[76px]"></div>
+    <div class="grid items-center gap-10 py-12 md:grid-cols-2 md:gap-16 md:py-20">
+      <div>
+        {tagline && <p class="text-base font-bold uppercase tracking-wide text-primary dark:text-blue-200">{tagline}</p>}
+        <h1 class="mt-2 text-4xl font-bold leading-tighter tracking-tighter font-heading lg:text-5xl dark:text-white">
+          {title}
+        </h1>
+        {subtitle && <p class="mt-4 text-xl text-muted dark:text-slate-400">{subtitle}</p>}
+
+        {
+          items.length > 0 && (
+            <ul class="mt-10 space-y-8">
+              {items.map(({ title, description, icon }) => (
+                <li class="flex">
+                  <Icon
+                    name={icon || 'tabler:check'}
+                    class="mr-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-green-600 p-1 text-gray-50 dark:bg-green-700"
+                  />
+                  <div class="mt-0.5">
+                    <h2 class="text-lg font-medium leading-6 dark:text-white">{title}</h2>
+                    {description && <p class="mt-3 text-muted dark:text-slate-400">{description}</p>}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )
+        }
+      </div>
+
+      <div class="mx-auto w-full max-w-md md:max-w-none">
+        <Image
+          class="aspect-square w-full rounded-lg object-cover shadow-lg bg-gray-400 dark:bg-slate-700"
+          style={`object-position: ${imagePosition}`}
+          widths={[400, 640, 900]}
+          sizes="(max-width: 767px) 400px, 600px"
+          width={640}
+          height={640}
+          layout="cover"
+          loading="eager"
+          fetchpriority="high"
+          {...image}
+        />
+      </div>
+    </div>
+  </div>
+</section>

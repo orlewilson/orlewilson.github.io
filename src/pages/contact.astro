@@ -1,0 +1,83 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+import { profile } from '~/data/profile';
+import { services } from '~/data/expertise';
+
+const metadata = {
+  title: 'Contato',
+  description: `Fale com ${profile.name}. ${profile.availability}`,
+};
+
+// Ícones coloridos para os formatos de colaboração, na ordem de `services`.
+const COLOR_ICONS = [
+  'flat-color-icons:approval',
+  'flat-color-icons:electronics',
+  'flat-color-icons:voice-presentation',
+  'flat-color-icons:idea',
+];
+
+const linkedin =profile.socials.find(({ label }) => label === 'LinkedIn')!;
+const otherSocials = profile.socials.filter(({ label }) => label !== 'LinkedIn');
+---
+
+<Layout metadata={metadata}>
+  <!-- Slide 11 -->
+
+  <HeroText
+    tagline="Contato"
+    title="Vamos conversar?"
+    subtitle={`Conhecimento aplicado para gerar qualidade, inovação e desenvolvimento. ${profile.availability}`}
+  />
+
+  <Features2
+    id="canais"
+    columns={3}
+    items={[
+      {
+        title: 'E-mail',
+        description: profile.email,
+        icon: 'tabler:mail',
+        href: `mailto:${profile.email}`,
+      },
+      {
+        title: 'LinkedIn',
+        description: linkedin.href.replace('https://www.', ''),
+        icon: linkedin.icon,
+        href: linkedin.href,
+      },
+      {
+        title: 'Currículo Lattes',
+        description: 'Publicações, orientações e produção técnica.',
+        icon: 'tabler:file-cv',
+        href: profile.lattes,
+      },
+    ]}
+  />
+
+  <Features2
+    tagline="Como posso ajudar"
+    title="Formatos de colaboração"
+    subtitle="Cada formato é ajustado ao contexto e ao objetivo do projeto."
+    columns={2}
+    items={services.map((service, index) => ({ ...service, icon: COLOR_ICONS[index] }))}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <Features2
+    tagline="Redes"
+    title="Também estou em"
+    columns={3}
+    items={otherSocials.map(({ label, icon, href }) => ({
+      title: label,
+      description: href.replace(/^https:\/\/(www\.)?/, ''),
+      icon,
+      href,
+    }))}
+  />
+</Layout>

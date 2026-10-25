@@ -1,0 +1,93 @@
+---
+// Pill links to the sections of an expertise page, with item counts.
+// With `sticky`, the bar stays under the site header while scrolling,
+// highlights the section on screen and scrolls sideways on small screens.
+
+export interface Props {
+  sections: Array<{ id: string; label: string; count?: number }>;
+  sticky?: boolean;
+}
+
+const { sections, sticky = false } = Astro.props;
+---
+
+<aw-section-nav
+  class:list={[
+    'block',
+    sticky && 'sticky z-30 border-b border-gray-200/70 bg-page/95 backdrop-blur dark:border-slate-700/70',
+  ]}
+  data-sticky={sticky ? '' : undefined}
+>
+  <nav
+    aria-label="Seções"
+    class:list={[
+      'mx-auto flex max-w-6xl gap-3 px-4',
+      sticky
+        ? 'flex-nowrap overflow-x-auto py-3 md:flex-wrap md:justify-center [scrollbar-width:none]'
+        : '-mt-4 mb-4 flex-wrap justify-center',
+    ]}
+  >
+    {
+      sections.map(({ id, label, count }) => (
+        <a
+          href={`#${id}`}
+          data-section={id}
+          class="shrink-0 whitespace-nowrap rounded-full border border-gray-300 px-5 py-2 font-medium transition hover:border-primary hover:text-primary aria-[current=true]:border-primary aria-[current=true]:bg-primary aria-[current=true]:text-white dark:border-slate-600"
+        >
+          {label} {count !== undefined && <span class="opacity-70">({count})</span>}
+        </a>
+      ))
+    }
+  </nav>
+</aw-section-nav>
+
+<script>
+  class AwSectionNav extends HTMLElement {
+    connectedCallback() {
+      if (!this.hasAttribute('data-sticky')) return;
+
+      const header = document.querySelector<HTMLElement>('#header');
+      const nav = this.querySelector('nav')!;
+      const links = [...this.querySelectorAll<HTMLAnchorElement>('[data-section]')];
+      const sections = links
+        .map((link) => document.getElementById(link.dataset.section!))
+        .filter((section): section is HTMLElement => !!section);
+
+      // Sit right under the sticky header, and make anchor jumps stop below both
+      // (sections already carry a 72px scroll margin for the header).
+      const place = () => {
+        const headerHeight = header?.offsetHeight ?? 0;
+        this.style.top = `${headerHeight}px`;
+        document.documentElement.style.scrollPaddingTop = `${Math.max(0, headerHeight - 72) + this.offsetHeight}px`;
+      };
+      place();
+      window.addEventListener('resize', place);
+
+      // Highlight the section that crosses the line just below the bar.
+      const setCurrent = (id: string) => {
+        links.forEach((link) => {
+          const active = link.dataset.section === id;
+          link.setAttribute('aria-current', String(active));
+          if (active) nav.scrollTo({ left: link.offsetLeft - nav.offsetWidth / 2 + link.offsetWidth / 2, behavior: 'smooth' });
+        });
+      };
+      const update = () => {
+        const line = this.getBoundingClientRect().bottom + 8;
+        const current = sections.filter((section) => section.getBoundingClientRect().top <= line).pop();
+        if (current) setCurrent(current.id);
+        else links.forEach((link) => link.setAttribute('aria-current', 'false'));
+      };
+      let frame = 0;
+      window.addEventListener(
+        'scroll',
+        () => {
+          cancelAnimationFrame(frame);
+          frame = requestAnimationFrame(update);
+        },
+        { passive: true }
+      );
+      update();
+    }
+  }
+  if (!customElements.get('aw-section-nav')) customElements.define('aw-section-nav', AwSectionNav);
+</script>

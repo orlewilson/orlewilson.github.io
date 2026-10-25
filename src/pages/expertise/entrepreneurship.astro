@@ -1,0 +1,79 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import ExpertiseNav from '~/components/portfolio/ExpertiseNav.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import ActivityGrid from '~/components/portfolio/ActivityGrid.astro';
+import ActivityCard from '~/components/portfolio/ActivityCard.astro';
+import SectionNav from '~/components/portfolio/SectionNav.astro';
+import { eventCards } from '~/utils/activities';
+import { getPermalink } from '~/utils/permalinks';
+
+import { expertise } from '~/data/expertise';
+
+const area = expertise.find(({ slug }) => slug === 'entrepreneurship')!;
+
+const mentoring = await eventCards(['mentoria']);
+// Jaraqui Graúdo + a aprovação no Call for Startup da Campus Party (registrada como competição no site antigo).
+// Os Academic Stars (prêmios de docência) ficam na página de Educação.
+const awards = await eventCards(
+  ['premiação', 'competição'],
+  ({ id }) => id.includes('jaraqui-graudo') || id.includes('call-for-startup')
+);
+
+const sections = [
+  { id: 'mentorias', label: 'Mentorias', count: mentoring.length, icon: 'tabler:users-group' },
+  { id: 'reconhecimentos', label: 'Reconhecimentos', count: awards.length, icon: 'tabler:award' },
+];
+
+const metadata = {
+  title: area.title,
+  description: `${area.tagline} Mentorias em hackathons e programas de startups e prêmios.`,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Slide 6 -->
+
+  <HeroText tagline="Áreas de atuação" title={area.title} subtitle={area.tagline} />
+
+  <Stats
+    classes={{ container: 'pt-4 md:pt-6 lg:pt-6' }}
+    stats={[
+      { amount: '+50', title: 'equipes mentoradas', icon: 'tabler:rocket' },
+      ...sections.map(({ label, count, icon }) => ({ amount: count, title: label, icon })),
+    ]}
+  />
+
+  <SectionNav sections={sections} sticky />
+
+  <ActivityGrid id="mentorias" tagline="Mentorias" title="Da ideia ao pitch, junto com as equipes">
+    {
+      mentoring.map(({ Content, title, meta, cover, photos }) => (
+        <ActivityCard title={title} meta={meta} cover={cover} photos={photos} icon="tabler:users-group">
+          <Content />
+        </ActivityCard>
+      ))
+    }
+  </ActivityGrid>
+
+  <ActivityGrid id="reconhecimentos" tagline="Reconhecimentos" title="Prêmios e conquistas">
+    {
+      awards.map(({ Content, title, meta, cover, photos }) => (
+        <ActivityCard title={title} meta={meta} cover={cover} photos={photos} icon="tabler:award">
+          <Content />
+        </ActivityCard>
+      ))
+    }
+  </ActivityGrid>
+
+  <CallToAction
+    title="Tem uma ideia ou uma startup?"
+    subtitle="Mentorias e workshops para transformar ideias em hipóteses, experimentos e próximos passos."
+    actions={[{ variant: 'primary', text: 'Entrar em contato', href: getPermalink('/contact'), icon: 'tabler:mail' }]}
+  />
+
+  <ExpertiseNav current="entrepreneurship" />
+</Layout>

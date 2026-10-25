@@ -1,0 +1,45 @@
+---
+import Headline from '~/components/ui/Headline.astro';
+import Timeline from '~/components/ui/Timeline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+
+// Education and work history side by side, as two compact timelines.
+
+interface Entry {
+  period: string;
+  title: string;
+  description?: string;
+  highlight?: boolean;
+}
+
+export interface Props {
+  id?: string;
+  tagline?: string;
+  title?: string;
+  columns: Array<{ title: string; icon: string; entries: Entry[] }>;
+}
+
+const { id, tagline, title, columns } = Astro.props;
+
+const toItems = (entries: Entry[], icon: string) =>
+  entries.map(({ period, title, description, highlight }) => ({
+    title: `<span class="block text-sm font-semibold text-primary dark:text-blue-300">${period}</span>${title}`,
+    description,
+    icon,
+    classes: highlight ? { icon: 'bg-primary text-white border-primary dark:text-white' } : {},
+  }));
+---
+
+<WidgetWrapper id={id} containerClass="max-w-6xl mx-auto">
+  <Headline tagline={tagline} title={title} />
+  <div class="grid gap-12 md:grid-cols-2">
+    {
+      columns.map(({ title, icon, entries }) => (
+        <div>
+          <h3 class="mb-8 text-2xl font-bold font-heading">{title}</h3>
+          <Timeline items={toItems(entries, icon)} classes={{ title: 'text-lg', description: 'text-base' }} />
+        </div>
+      ))
+    }
+  </div>
+</WidgetWrapper>

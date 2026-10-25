@@ -1,0 +1,101 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import ExpertiseNav from '~/components/portfolio/ExpertiseNav.astro';
+
+import HeroText from '~/components/widgets/HeroText.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import PublicationList from '~/components/portfolio/PublicationList.astro';
+import ActivityGrid from '~/components/portfolio/ActivityGrid.astro';
+import ActivityCard from '~/components/portfolio/ActivityCard.astro';
+import SectionNav from '~/components/portfolio/SectionNav.astro';
+import { projectCards } from '~/utils/activities';
+import { getPermalink } from '~/utils/permalinks';
+
+import { expertise } from '~/data/expertise';
+import { profile } from '~/data/profile';
+import { journalArticles, conferencePapers } from '~/data/publications';
+
+const area = expertise.find(({ slug }) => slug === 'innovation')!;
+
+const research = await projectCards('p&d');
+const consulting = await projectCards('consultoria');
+const advising = await projectCards('orientação');
+
+const sections = [
+  { id: 'pesquisa', label: 'Pesquisa e P&D', count: research.length, icon: 'tabler:flask' },
+  { id: 'consultorias', label: 'Consultorias', count: consulting.length, icon: 'tabler:briefcase' },
+  { id: 'orientacoes', label: 'Orientações', count: advising.length, icon: 'tabler:school' },
+  { id: 'publicacoes', label: 'Publicações' },
+];
+
+const metadata = {
+  title: area.title,
+  description: `${area.tagline} Projetos de P&D em TV Digital e plataformas móveis, consultorias, orientações e publicações científicas.`,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Slide 7 -->
+
+  <HeroText tagline="Áreas de atuação" title={area.title} subtitle={area.tagline} />
+
+  <Stats
+    classes={{ container: 'pt-4 md:pt-6 lg:pt-6' }}
+    stats={[
+      { amount: '+40', title: 'publicações científicas', icon: 'tabler:file-text' },
+      ...sections.slice(0, 3).map(({ label, count, icon }) => ({ amount: count, title: label, icon })),
+    ]}
+  />
+
+  <SectionNav sections={sections} sticky />
+
+  <ActivityGrid id="pesquisa" tagline="Pesquisa e P&D" title="TV Digital e plataformas móveis na prática">
+    {
+      research.map(({ Content, title, meta, cover, photos }) => (
+        <ActivityCard title={title} meta={meta} cover={cover} photos={photos} icon="tabler:flask">
+          <Content />
+        </ActivityCard>
+      ))
+    }
+  </ActivityGrid>
+
+  <ActivityGrid id="consultorias" tagline="Consultorias" title="Soluções sob medida para parceiros">
+    {
+      consulting.map(({ Content, title, meta, cover, photos }) => (
+        <ActivityCard title={title} meta={meta} cover={cover} photos={photos} icon="tabler:briefcase">
+          <Content />
+        </ActivityCard>
+      ))
+    }
+  </ActivityGrid>
+
+  <ActivityGrid id="orientacoes" tagline="Orientações" title="Trabalhos de conclusão de curso">
+    {
+      advising.map(({ Content, title, meta, cover, photos }) => (
+        <ActivityCard title={title} meta={meta} cover={cover} photos={photos} icon="tabler:school">
+          <Content />
+        </ActivityCard>
+      ))
+    }
+  </ActivityGrid>
+
+  <PublicationList
+    id="publicacoes"
+    tagline="Publicações"
+    title="Artigos em destaque"
+    groups={[
+      { title: 'Artigos em periódicos', icon: 'tabler:book', items: journalArticles },
+      { title: 'Artigos em congressos', icon: 'tabler:presentation', items: conferencePapers },
+    ]}
+    moreLink={{ text: 'Ver todas no Currículo Lattes', href: profile.lattes }}
+  />
+
+  <CallToAction
+    title="Tem um projeto de pesquisa ou inovação?"
+    subtitle="Pesquisa aplicada, artigos científicos, prototipação e validação em TV Digital, sistemas convergentes e manufatura avançada."
+    actions={[{ variant: 'primary', text: 'Entrar em contato', href: getPermalink('/contact'), icon: 'tabler:mail' }]}
+  />
+
+  <ExpertiseNav current="innovation" />
+</Layout>

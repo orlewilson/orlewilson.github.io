@@ -1,0 +1,135 @@
+---
+import { Icon } from 'astro-icon/components';
+
+// Wraps ActivityCard items and opens them in a native <dialog> with the
+// photo(s) and description. The arrows go through the cards that are visible
+// (not filtered out or inside a closed group). A context line shows the
+// section (`label`), the group of the item (`data-group-name` on an ancestor,
+// e.g. the institution) and its position among the visible cards.
+
+export interface Props {
+  label?: string;
+}
+
+const { label } = Astro.props;
+---
+
+<aw-activities data-label={label}>
+  <slot />
+
+  <dialog
+    class="m-auto max-h-[92vh] w-[min(56rem,92vw)] overflow-y-auto rounded-xl bg-white p-0 text-page backdrop:bg-black/80 backdrop:backdrop-blur-sm dark:bg-slate-900"
+    aria-label="Detalhes"
+  >
+    <div class="relative min-h-14 bg-black">
+      <img data-viewer-img class="mx-auto max-h-[60vh] w-auto object-contain" alt="" />
+      <form method="dialog" class="absolute right-2 top-2">
+        <button
+          type="submit"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80"
+          aria-label="Fechar"
+        >
+          <Icon name="tabler:x" class="h-5 w-5" />
+        </button>
+      </form>
+      <button
+        type="button"
+        data-prev
+        class="absolute left-2 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80"
+        aria-label="Anterior"
+      >
+        <Icon name="tabler:chevron-left" class="h-5 w-5" />
+      </button>
+      <button
+        type="button"
+        data-next
+        class="absolute right-2 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/80"
+        aria-label="Próximo"
+      >
+        <Icon name="tabler:chevron-right" class="h-5 w-5" />
+      </button>
+    </div>
+    <div data-viewer-thumbs class="flex justify-center gap-2 pt-3"></div>
+    <div class="p-5 md:p-6">
+      <p
+        class="mb-2 flex items-baseline justify-between gap-4 text-xs font-semibold uppercase tracking-wider text-primary dark:text-blue-300"
+      >
+        <span data-viewer-context></span>
+        <span data-viewer-position class="shrink-0 tabular-nums text-muted" aria-live="polite"></span>
+      </p>
+      <h3 data-viewer-title class="text-xl font-bold"></h3>
+      <div data-viewer-description class="prose prose-sm mt-2 max-w-none dark:prose-invert"></div>
+    </div>
+  </dialog>
+</aw-activities>
+
+<script>
+  class AwActivities extends HTMLElement {
+    connectedCallback() {
+      const items = [...this.querySelectorAll<HTMLLIElement>('li[data-item]')];
+      const dialog = this.querySelector('dialog')!;
+      const img = dialog.querySelector<HTMLImageElement>('[data-viewer-img]')!;
+      const thumbs = dialog.querySelector<HTMLElement>('[data-viewer-thumbs]')!;
+      const title = dialog.querySelector<HTMLElement>('[data-viewer-title]')!;
+      const description = dialog.querySelector<HTMLElement>('[data-viewer-description]')!;
+      const context = dialog.querySelector<HTMLElement>('[data-viewer-context]')!;
+      const position = dialog.querySelector<HTMLElement>('[data-viewer-position]')!;
+      const prev = dialog.querySelector<HTMLButtonElement>('[data-prev]')!;
+      const next = dialog.querySelector<HTMLButtonElement>('[data-next]')!;
+
+      let current: HTMLLIElement | undefined;
+      const showPhoto = (src: string) => {
+        img.src = src;
+        thumbs.querySelectorAll('button').forEach((b) => b.setAttribute('aria-current', String(b.dataset.src === src)));
+      };
+      const isVisible = (item: HTMLLIElement) => !item.closest('[hidden]') && !item.closest('details:not([open])');
+      const show = (item: HTMLLIElement) => {
+        current = item;
+        const visible = items.filter(isVisible);
+        const group = item.closest<HTMLElement>('[data-group-name]')?.dataset.groupName;
+        context.textContent = [this.dataset.label, group].filter(Boolean).join(' · ');
+        position.textContent = `${visible.indexOf(item) + 1} de ${visible.length}`;
+        prev.hidden = next.hidden = visible.length < 2;
+        const photos: string[] = JSON.parse(item.querySelector<HTMLElement>('[data-open]')!.dataset.photos || '[]');
+        title.textContent = item.querySelector('[data-title]')!.textContent;
+        description.innerHTML = item.querySelector('[data-description]')!.innerHTML;
+        img.hidden = photos.length === 0;
+        img.alt = title.textContent ?? '';
+        thumbs.replaceChildren(
+          ...(photos.length > 1 ? photos : []).map((src, index) => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.dataset.src = src;
+            button.className = 'h-2.5 w-2.5 rounded-full bg-gray-300 aria-[current=true]:bg-primary';
+            button.setAttribute('aria-label', `Foto ${index + 1}`);
+            button.addEventListener('click', () => showPhoto(src));
+            return button;
+          })
+        );
+        if (photos.length) showPhoto(photos[0]);
+      };
+      const step = (delta: number) => {
+        const visible = items.filter(isVisible);
+        if (!current || !visible.length) return;
+        show(visible[(visible.indexOf(current) + delta + visible.length) % visible.length]);
+      };
+
+      items.forEach((item) =>
+        item.querySelector('[data-open]')!.addEventListener('click', () => {
+          show(item);
+          dialog.showModal();
+        })
+      );
+      prev.addEventListener('click', () => step(-1));
+      next.addEventListener('click', () => step(1));
+      dialog.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') step(-1);
+        if (event.key === 'ArrowRight') step(1);
+      });
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+    }
+  }
+  if (!customElements.get('aw-activities')) customElements.define('aw-activities', AwActivities);
+</script>
