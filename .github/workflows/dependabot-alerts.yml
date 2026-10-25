@@ -1,0 +1,30 @@
+# Exports the repository's Dependabot alerts to a CSV file, available as an
+# artifact ("vulnerability_report") in the workflow run.
+# Requires the GH_TOKEN secret: a token with read access to Dependabot alerts.
+name: Dependabot Alerts Export
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 12 * * 1' # Mondays, 12:00 UTC
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dependabot Alert CSV Export
+        uses: ShamKarthikS-Hexaware/dependabot-alert-export@v1.0
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          org_name: 'orlewilson'
+          repo_name: 'orlewilson.github.io'
+          csv_path: data/vulnerability.csv
+
+      - name: Upload Vulnerability report
+        uses: actions/upload-artifact@v4
+        with:
+          name: vulnerability_report
+          path: data/vulnerability.csv
